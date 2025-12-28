@@ -17,27 +17,27 @@ const Hero = () => {
 
   useEffect(() => {
     const current = roles[roleIndex];
-    const typingSpeed = isDeleting ? 50 : 80;
-    let timeout: ReturnType<typeof setTimeout>;
+    const finishedTyping = !isDeleting && displayText === current;
+    const finishedDeleting = isDeleting && displayText === "";
 
-    if (!isDeleting && displayText === current) {
-      timeout = setTimeout(() => setIsDeleting(true), 2000);
-    } else if (isDeleting && displayText === "") {
-      setIsDeleting(false);
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    } else {
-      timeout = setTimeout(() => {
-        setDisplayText((prev) => {
-          if (!isDeleting) {
-            return current.slice(0, prev.length + 1);
-          }
-          return current.slice(0, prev.length - 1);
-        });
-      }, typingSpeed);
-    }
+    const timeout = setTimeout(() => {
+      if (finishedTyping) {
+        setIsDeleting(true);
+        return;
+      }
+      if (finishedDeleting) {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+        return;
+      }
+      const nextText = isDeleting
+        ? current.slice(0, displayText.length - 1)
+        : current.slice(0, displayText.length + 1);
+      setDisplayText(nextText);
+    }, finishedTyping ? 1500 : isDeleting ? 40 : 90);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex, roles]);
+  }, [displayText, isDeleting, roleIndex]);
 
   return (
     <div className="pb-20 pt-36">
@@ -102,7 +102,7 @@ const Hero = () => {
             className="font-normal text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl flex flex-col sm:flex-row sm:items-center sm:justify-center gap-1"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
           >
             <span className="text-purple">a</span>
             <span className="text-purple">
@@ -119,7 +119,7 @@ const Hero = () => {
             className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 1 }}
           >
             <a href="#work">
               <MagicButton
