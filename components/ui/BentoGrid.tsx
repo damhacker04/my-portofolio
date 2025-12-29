@@ -263,15 +263,20 @@ export const BentoGridItem = ({
             <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
               {description}
             </div>
-            <div className="font-sans text-lg lg:text-3xl max-w-96 font-bold z-10">
+            <div
+              className={cn(
+                "font-sans text-lg lg:text-3xl max-w-96 font-bold z-10",
+                id === 3 && "mb-4"
+              )}
+            >
               {title}
             </div>
 
             {id === 2 && <GridGlobe />}
 
             {id === 3 && (
-              <div className="w-full mt-4 overflow-hidden">
-                <div className="flex items-center gap-4 md:gap-6 animate-marquee min-w-max">
+              <div className="w-full mt-4 overflow-visible px-6">
+                <div className="flex items-center gap-6 md:gap-8 animate-marquee min-w-max">
                   {[...skillCards, ...skillCards].map((skill, i) => {
                     const Icon = skill.icon;
                     const styleCfg = skillStyles[skill.label] || {
@@ -286,7 +291,7 @@ export const BentoGridItem = ({
                         key={skill.label + i}
                         className={cn(
                           "bg-[#14134145] text-center w-28 h-28 sm:w-32 sm:h-32 rounded-2xl flex flex-col items-center justify-center",
-                          "shadow-lg transition hover:scale-105 shrink-0 border border-transparent",
+                          "shadow-lg transition hover:scale-[1.03] shrink-0 border border-transparent",
                           "hover:shadow-[var(--skill-shadow)]",
                           "hover:border-[var(--skill-border)]",
                           "hover:bg-[radial-gradient(circle_at_center,var(--skill-grad-start),var(--skill-grad-end))]"
