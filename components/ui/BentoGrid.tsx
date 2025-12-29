@@ -1,15 +1,14 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import {
   SiJavascript,
   SiReact,
   SiNextdotjs,
+  SiNodedotjs,
   SiTailwindcss,
   SiTypescript,
   SiLaravel,
-  SiHtml5,
-  SiCss3,
 } from "react-icons/si";
 
 // Also install this npm i --save-dev @types/react-lottie
@@ -23,13 +22,10 @@ import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
 const skillCards = [
-  
-  { label: "HTML", percent: "90%", icon: SiHtml5 },
-  { label: "CSS", percent: "90%", icon: SiCss3 },
-  { label: "JavaScript", percent: "90%", icon: SiJavascript },
   { label: "Laravel", percent: "71%", icon: SiLaravel },
   { label: "React.js", percent: "", icon: SiReact },
   { label: "Next.js", percent: "90%", icon: SiNextdotjs },
+  { label: "Node.js", percent: "88%", icon: SiNodedotjs },
   { label: "Tailwind CSS", percent: "94%", icon: SiTailwindcss },
   { label: "TypeScript", percent: "86%", icon: SiTypescript },
 ];
@@ -44,7 +40,6 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        // change gap-4 to gap-8, change grid-cols-3 to grid-cols-5, remove md:auto-rows-[18rem], add responsive code
         "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
         className
       )}
@@ -59,7 +54,6 @@ export const BentoGridItem = ({
   id,
   title,
   description,
-  //   remove unecessary things here
   img,
   imgClassName,
   titleClassName,
@@ -75,6 +69,16 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const [copied, setCopied] = useState(false);
+  const slides = ["/PhotoBackground1.jpg", "/Foto_Background2.jpeg"];
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    if (id !== 1) return;
+    const interval = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [id, slides.length]);
 
   const defaultOptions = {
     loop: copied,
@@ -95,28 +99,39 @@ export const BentoGridItem = ({
     <>
       <div
         className={cn(
-          "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+          "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+          id === 1 ? "duration-500 ease-out" : "duration-200",
           className
         )}
-        style={{
-          background: "rgb(4,7,29)",
-          backgroundColor:
-            "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-        }}
+        style={
+          id === 1
+            ? {
+                backgroundImage: `url(${slides[slideIndex]})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+            : {
+                background: "rgb(4,7,29)",
+                backgroundColor:
+                  "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+              }
+        }
       >
         <div className={`${id === 6 && "flex justify-center"} h-full`}>
           <div className="w-full h-full absolute">
-            {img && (
+            {id !== 1 && img && (
               <img
                 src={img}
                 alt={img}
                 className={cn(imgClassName, "object-cover object-center ")}
               />
             )}
+            {id === 1 && (
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.5))]" />
+            )}
           </div>
           <div
-            className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
-              } `}
+            className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"}`}
           >
             {spareImg && (
               <img
@@ -135,13 +150,14 @@ export const BentoGridItem = ({
           <div
             className={cn(
               titleClassName,
-              "group-hover/bento:translate-x-2 transition duration-200 relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10"
+              "group-hover/bento:translate-x-2 transition relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10",
+              id === 1 ? "duration-500 ease-out" : "duration-200"
             )}
           >
             <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
               {description}
             </div>
-            <div className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}>
+            <div className="font-sans text-lg lg:text-3xl max-w-96 font-bold z-10">
               {title}
             </div>
 
@@ -167,8 +183,7 @@ export const BentoGridItem = ({
             {id === 6 && (
               <div className="mt-5 relative">
                 <div
-                  className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                    }`}
+                  className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"}`}
                 >
                   <Lottie options={defaultOptions} height={200} width={400} />
                 </div>
