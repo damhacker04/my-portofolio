@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { IoCopyOutline } from "react-icons/io5";
 import {
   SiJavascript,
@@ -9,6 +10,9 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiLaravel,
+  SiPhp,
+  SiHtml5,
+  SiCss3
 } from "react-icons/si";
 
 // Also install this npm i --save-dev @types/react-lottie
@@ -23,12 +27,92 @@ import MagicButton from "../MagicButton";
 
 const skillCards = [
   { label: "Laravel", percent: "71%", icon: SiLaravel },
-  { label: "React.js", percent: "", icon: SiReact },
+  { label: "PHP", percent: "86%", icon: SiPhp },
+  { label: "HTML", percent: "86%", icon: SiHtml5 },
+  { label: "CSS", percent: "86%", icon: SiCss3 },
+  { label: "JavaScript", percent: "90%", icon: SiJavascript },
+  { label: "React.js", percent: "20%", icon: SiReact },
   { label: "Next.js", percent: "90%", icon: SiNextdotjs },
   { label: "Node.js", percent: "88%", icon: SiNodedotjs },
   { label: "Tailwind CSS", percent: "94%", icon: SiTailwindcss },
   { label: "TypeScript", percent: "86%", icon: SiTypescript },
 ];
+
+const skillStyles: Record<
+  string,
+  { base: string; shadow: string; border: string; gradStart: string; gradEnd: string }
+> = {
+  Laravel: {
+    base: "#F55247",
+    shadow: "rgba(245,82,71,0.45)",
+    border: "rgba(245,82,71,0.35)",
+    gradStart: "rgba(245,82,71,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  "React.js": {
+    base: "#61DAFB",
+    shadow: "rgba(97,218,251,0.45)",
+    border: "rgba(97,218,251,0.35)",
+    gradStart: "rgba(97,218,251,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  "Next.js": {
+    base: "#FFFFFF",
+    shadow: "rgba(255,255,255,0.35)",
+    border: "rgba(255,255,255,0.25)",
+    gradStart: "rgba(255,255,255,0.15)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  "Node.js": {
+    base: "#68A063",
+    shadow: "rgba(104,160,99,0.45)",
+    border: "rgba(104,160,99,0.35)",
+    gradStart: "rgba(104,160,99,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  "Tailwind CSS": {
+    base: "#38BDF8",
+    shadow: "rgba(56,189,248,0.45)",
+    border: "rgba(56,189,248,0.35)",
+    gradStart: "rgba(56,189,248,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  TypeScript: {
+    base: "#3178C6",
+    shadow: "rgba(49,120,198,0.45)",
+    border: "rgba(49,120,198,0.35)",
+    gradStart: "rgba(49,120,198,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  PHP: {
+    base: "#777BB3",
+    shadow: "rgba(119,123,179,0.45)",
+    border: "rgba(119,123,179,0.35)",
+    gradStart: "rgba(119,123,179,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  HTML: {
+    base: "#E34F26",
+    shadow: "rgba(227,79,38,0.45)",
+    border: "rgba(227,79,38,0.35)",
+    gradStart: "rgba(227,79,38,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  CSS: {
+    base: "#1572B6",
+    shadow: "rgba(21,114,182,0.45)",
+    border: "rgba(21,114,182,0.35)",
+    gradStart: "rgba(21,114,182,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+  JavaScript: {
+    base: "#F7DF1E",
+    shadow: "rgba(247,223,30,0.45)",
+    border: "rgba(247,223,30,0.35)",
+    gradStart: "rgba(247,223,30,0.20)",
+    gradEnd: "rgba(20,19,49,0.85)",
+  },
+};
 
 export const BentoGrid = ({
   className,
@@ -105,11 +189,7 @@ export const BentoGridItem = ({
         )}
         style={
           id === 1
-            ? {
-                backgroundImage: `url(${slides[slideIndex]})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }
+            ? undefined
             : {
                 background: "rgb(4,7,29)",
                 backgroundColor:
@@ -127,7 +207,33 @@ export const BentoGridItem = ({
               />
             )}
             {id === 1 && (
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.5))]" />
+              <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                <div
+                  className="flex h-full"
+                  style={{
+                    width: `${slides.length * 100}%`,
+                    transform: `translateX(-${slideIndex * 100}%)`,
+                    transition: "transform 800ms ease-out",
+                  }}
+                >
+                  {slides.map((src, idx) => (
+                    <div
+                      key={src + idx}
+                      className="relative w-full h-full flex-shrink-0"
+                    >
+                      <Image
+                        src={src}
+                        alt={`Slide ${idx + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        priority={idx === 0}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#04091d]/80 via-transparent to-transparent" />
+              </div>
             )}
           </div>
           <div
@@ -168,12 +274,36 @@ export const BentoGridItem = ({
                 <div className="flex items-center gap-4 md:gap-6 animate-marquee min-w-max">
                   {[...skillCards, ...skillCards].map((skill, i) => {
                     const Icon = skill.icon;
+                    const styleCfg = skillStyles[skill.label] || {
+                      base: "#d1d5db",
+                      shadow: "rgba(112,141,129,0.45)",
+                      border: "rgba(112,141,129,0.35)",
+                      gradStart: "rgba(112,141,129,0.20)",
+                      gradEnd: "rgba(20,19,49,0.85)",
+                    };
                     return (
                       <div
                         key={skill.label + i}
-                        className="bg-[#14134145] text-center w-28 h-28 sm:w-32 sm:h-32 rounded-2xl flex flex-col items-center justify-center shadow-lg transition hover:scale-105 shrink-0"
+                        className={cn(
+                          "bg-[#14134145] text-center w-28 h-28 sm:w-32 sm:h-32 rounded-2xl flex flex-col items-center justify-center",
+                          "shadow-lg transition hover:scale-105 shrink-0 border border-transparent",
+                          "hover:shadow-[var(--skill-shadow)]",
+                          "hover:border-[var(--skill-border)]",
+                          "hover:bg-[radial-gradient(circle_at_center,var(--skill-grad-start),var(--skill-grad-end))]"
+                        )}
+                        style={
+                          {
+                            "--skill-shadow": `0 0 24px ${styleCfg.shadow}`,
+                            "--skill-border": styleCfg.border,
+                            "--skill-grad-start": styleCfg.gradStart,
+                            "--skill-grad-end": styleCfg.gradEnd,
+                          } as React.CSSProperties
+                        }
                       >
-                        <Icon className="text-4xl sm:text-5xl text-gray-300" />
+                        <Icon
+                          className="text-4xl sm:text-5xl"
+                          style={{ color: styleCfg.base }}
+                        />
                       </div>
                     );
                   })}
@@ -210,7 +340,7 @@ export const BentoGridItem = ({
           }
         }
         .animate-marquee {
-          animation: marquee 15s linear infinite;
+          animation: marquee 25s linear infinite;
           will-change: transform;
         }
         .animate-marquee > * {
