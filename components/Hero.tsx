@@ -40,7 +40,7 @@ const Hero = () => {
   }, [displayText, isDeleting, roleIndex]);
 
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 pt-36" id="about">
       {/* Spotlights */}
       <div>
         <Spotlight
