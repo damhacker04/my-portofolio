@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
@@ -81,9 +83,10 @@ export const projects = [
   {
     id: 2,
     title: "Adamflix",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    des: "Adamflix is a Laravel-based movie streaming platform with a full catalog, ratings, and playback that respects plan resolution (720p/1080p/4K) and device limits. Subscriptions are integrated with Midtrans, device access is enforced automatically, and the modern UI features “New Added/Trending” carousels plus search and categories.",
     img: "/Adamflix.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
+    // Tech stack: Laravel, PHP, HTML, Tailwind CSS, JavaScript (pastikan ikon tersedia di /public).
+    iconLists: ["/laravel.svg", "/php.svg", "/html.svg", "/tail.svg", "/js.svg"],
     link: "/ui.yoom.com",
   },
   {
@@ -99,6 +102,22 @@ export const projects = [
     title: "SolarQuiz",
     des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
     img: "/3DSolarSystem(1).svg",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+    link: "https://project-akhir-komputer-grafis.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Trajectory",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/Trajectory.png",
+    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
+    link: "https://project-akhir-komputer-grafis.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "RumahAman",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/RumahAman.png",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
     link: "https://project-akhir-komputer-grafis.vercel.app/",
   },
@@ -177,6 +196,10 @@ export const workExperience = [
     desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
+    startMonth: "Mar",
+    startYear: 2024,
+    endMonth: "Nov",
+    endYear: 2024,
   },
   {
     id: 2,
@@ -184,20 +207,32 @@ export const workExperience = [
     desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
+    startMonth: "Mar",
+    startYear: 2024,
+    endMonth: "Apr",
+    endYear: "2024",
   },
   {
     id: 3,
-    title: "System Analyst of Klinik Sehat Selalu Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
-  },
-  {
-    id: 4,
     title: "Co-Head of Fahmil Qur'an UKM Seni Religi",
     desc: "Developed and maintained user-facing features using modern frontend technologies.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
+    startMonth: "Feb",
+    startYear: 2025,
+    endMonth: "Dec",
+    endYear: 2025,
+  },
+  {
+    id: 4,
+    title: "System Analyst of Klinik Sehat Selalu Project",
+    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    className: "md:col-span-2", // change to md:col-span-2
+    thumbnail: "/exp3.svg",
+    startMonth: "Aug",
+    startYear: 2025,
+    endMonth: "Dec",
+    endYear: 2025,
   },
 ];
 
@@ -205,6 +240,7 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/damhacker04",
   },
   {
     id: 2,
