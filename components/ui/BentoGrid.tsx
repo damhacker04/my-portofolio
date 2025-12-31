@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import {
   SiJavascript,
@@ -157,16 +156,6 @@ export const BentoGridItem = ({
   spareImg?: string;
 }) => {
   const [copied, setCopied] = useState(false);
-  const slides = ["/PhotoBackground1.jpg", "/Foto_Background2.jpeg"];
-  const [slideIndex, setSlideIndex] = useState(0);
-
-  useEffect(() => {
-    if (id !== 1) return;
-    const interval = setInterval(() => {
-      setSlideIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [id, slides.length]);
 
   const defaultOptions = {
     loop: copied,
@@ -187,57 +176,23 @@ export const BentoGridItem = ({
     <>
       <div
         className={cn(
-          "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
-          id === 1 ? "duration-500 ease-out" : "duration-200",
+          "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
           className
         )}
-        style={
-          id === 1
-            ? undefined
-            : {
-                background: "rgb(4,7,29)",
-                backgroundColor:
-                  "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-              }
-        }
+        style={{
+          background: "rgb(4,7,29)",
+          backgroundColor:
+            "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+        }}
       >
         <div className={`${id === 6 && "flex justify-center"} h-full`}>
           <div className="w-full h-full absolute">
-            {id !== 1 && img && (
+            {img && (
               <img
                 src={img}
                 alt={img}
                 className={cn(imgClassName, "object-cover object-center ")}
               />
-            )}
-            {id === 1 && (
-              <div className="absolute inset-0 overflow-hidden rounded-3xl">
-                <div
-                  className="flex h-full"
-                  style={{
-                    width: `${slides.length * 100}%`,
-                    transform: `translateX(-${slideIndex * 100}%)`,
-                    transition: "transform 800ms ease-out",
-                  }}
-                >
-                  {slides.map((src, idx) => (
-                    <div
-                      key={src + idx}
-                      className="relative w-full h-full flex-shrink-0"
-                    >
-                      <Image
-                        src={src}
-                        alt={`Slide ${idx + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                        priority={idx === 0}
-                      />
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04091d]/80 via-transparent to-transparent" />
-              </div>
             )}
           </div>
           <div
@@ -260,8 +215,7 @@ export const BentoGridItem = ({
           <div
             className={cn(
               titleClassName,
-              "group-hover/bento:translate-x-2 transition relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10",
-              id === 1 ? "duration-500 ease-out" : "duration-200"
+              "group-hover/bento:translate-x-2 transition relative md:h-full min-h-40 flex flex-col px-5 p-5 lg:p-10 duration-200"
             )}
           >
             <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">

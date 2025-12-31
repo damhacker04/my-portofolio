@@ -40,29 +40,15 @@ const Hero = () => {
   }, [displayText, isDeleting, roleIndex]);
 
   return (
-    <div className="pb-20 pt-36" id="about">
-      {/* Spotlights */}
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
-        />
-        <Spotlight
-          className="h-[80vh] w-[50vw] top-10 left-full"
-          fill="purple"
-        />
-        <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
-      </div>
-
-      {/* Grid overlay */}
-      <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute top-0 left-0 flex items-center justify-center"
-      >
-        <div
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
+     <div className="pb-20 pt-36">
+      {/* Background & spotlights */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]">
+          <div className="absolute inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+        </div>
+        <Spotlight className="top-0 left-0 h-[120vh] w-[120vw]" fill="white" />
+        <Spotlight className="top-10 left-1/3 h-[110vh] w-[110vw]" fill="purple" />
+        <Spotlight className="top-24 left-1/4 h-[110vh] w-[110vw]" fill="blue" />
       </div>
 
       <div className="flex justify-center relative my-20 z-10">
@@ -121,7 +107,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut", delay: 1 }}
           >
-            <a href="#work">
+            <a href="#about">
               <MagicButton
                 title="Show my work"
                 icon={<FaLocationArrow />}

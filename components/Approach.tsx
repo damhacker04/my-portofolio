@@ -6,7 +6,7 @@ import { CanvasRevealEffect } from "@/components/ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
-    <section className="w-full py-20">
+    <section className="w-full py-20 ">
       <h1 className="heading">
         My <span className="text-purple">approach</span>
       </h1>
@@ -50,7 +50,7 @@ const Approach = () => {
           title="Development & Launch"
           icon={<AceternityIcon order="Phase 3" />}
           des="This is where the magic happens! Based on the approved design, 
-          I'll translate everything into functional code, building your website
+          I'll translate everything into functional code, building your website and mobile
           from the ground up."
         >
           <CanvasRevealEffect

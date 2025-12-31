@@ -13,9 +13,9 @@ export const gridItems = [
     title: "I prioritize client collaboration, fostering open communication ",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
-    imgClassName: "w-full h-full",
+    imgClassName: "w-full h-full opacity-50",
     titleClassName: "justify-end",
-    img: "/b1.svg",
+    img: "/Foto_Background3.jpeg",
     spareImg: "",
   },
   {
@@ -128,7 +128,7 @@ export const workExperience = [
   {
     id: 1,
     title: "Event Staff HOLOGY 7.0 FILKOM 2024  ",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    desc: "Actively involved as an event staff in one of FILKOM’s flagship events, contributing to event operations, coordination, and technical support to ensure smooth execution of large-scale academic and technology activities.",
     className: "md:col-span-2",
     thumbnail: "/Hology.jpg",
     startMonth: "Mar",
@@ -139,7 +139,7 @@ export const workExperience = [
   {
     id: 2,
     title: "Backend of NgantinYUK Web Project ",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    desc: "Developed and managed backend features for a campus canteen ordering system, including API development, database design, and integration to support seamless food ordering and transaction workflows.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/NgantinYUKLogo3.png",
     startMonth: "Mar",
@@ -150,7 +150,7 @@ export const workExperience = [
   {
     id: 3,
     title: "Co-Head of Fahmil Qur'an UKM Seni Religi",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    desc: "Served as Co-Head of the Fahmil Qur’an division, responsible for team coordination, training programs, competition preparation, and fostering a structured learning environment within the organization.",
     className: "md:col-span-2",
     thumbnail: "/SR.jpg",
     startMonth: "Feb",
@@ -161,7 +161,7 @@ export const workExperience = [
   {
     id: 4,
     title: "System Analyst of Klinik Sehat Selalu Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    desc: "Acted as a system analyst in a service-based healthcare system project, responsible for requirement analysis, system design, business process modeling, and aligning technical solutions with user and organizational needs.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
     startMonth: "Aug",
@@ -180,9 +180,11 @@ export const socialMedia = [
   {
     id: 2,
     img: "/twit.svg",
+    link: "https://instagram.com/damdam_rafano",
   },
   {
     id: 3,
     img: "/link.svg",
+    link: "https://www.linkedin.com/in/kaesar-adam-rafano-b02b141b8",
   },
 ];

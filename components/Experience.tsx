@@ -18,7 +18,7 @@ const formatRange = (card: any) => {
 
 const Experience = () => {
   return (
-    <section id="experience">
+    <section id="experience" >
     <div className="py-20 w-full">
       <h1 className="heading">
         My <span className="text-purple">work experience</span>
