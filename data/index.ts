@@ -78,7 +78,7 @@ export const projects = [
     des: "NgantinYUK is a web and mobile application designed to make food ordering easier within the campus canteen environment.",
     img: "/NgantinYUK.png",
     iconLists: ["/laravel.svg", "/php.svg","/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
-    link: "/ui.earth.com",
+    link: "https://github.com/damhacker04/NgantinYUK",
   },
   {
     id: 2,
@@ -87,7 +87,7 @@ export const projects = [
     img: "/Adamflix.svg",
     // Tech stack: Laravel, PHP, HTML, Tailwind CSS, JavaScript (pastikan ikon tersedia di /public).
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    link: "/ui.yoom.com",
+    link: "https://github.com/damhacker04/adamflix",
   },
   {
     id: 3,
@@ -95,7 +95,7 @@ export const projects = [
     des: "AdamFood is a digital ordering system that lets you pick your favorite dishes, add them to your cart, and pay right at the table using QRIS or cash—then just relax while your food is prepared.",
     img: "/Adamfood.png",
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    link: "/ui.aiimg.com",
+    link: "https://github.com/damhacker04/adamfood",
   },
   {
     id: 4,
@@ -111,7 +111,7 @@ export const projects = [
     des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     img: "/Trajectory.png",
     iconLists: ["/flutter.svg", "/dart.svg", "/html.svg", ],
-    link: "https://project-akhir-komputer-grafis.vercel.app/",
+    link: "https://github.com/damhacker04/trajectoria",
   },
   {
     id: 6,
@@ -119,7 +119,7 @@ export const projects = [
     des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
     img: "/RumahAman.png",
     iconLists: ["/kotlin.svg", "/javascript.svg"],
-    link: "https://project-akhir-komputer-grafis.vercel.app/",
+    link: "https://github.com/DBizma/PAPB-Rumah-Aman",
   },
 ];
 
