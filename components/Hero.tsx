@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { BsDownload } from "react-icons/bs";
 import { FaLocationArrow } from "react-icons/fa";
 import MagicButton from "./MagicButton";
@@ -14,6 +14,14 @@ const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const downloadCV = useCallback(() => {
+    const link = document.createElement("a");
+    link.href = "/kaesar-adam-cv.pdf";                // sesuaikan nama file di public/
+    link.download = "Kaesar-Adam-CV.pdf"; // nama file saat tersimpan
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }, []);
 
   useEffect(() => {
     const current = roles[roleIndex];
@@ -114,13 +122,14 @@ const Hero = () => {
                 position="right"
               />
             </a>
-            <a href="#about">
-              <MagicButton
-                title="Download My CV"
-                icon={<BsDownload />}
-                position="left"
-              />
+            <a href="">
             </a>
+            <MagicButton
+              title="Download My CV"
+              icon={<BsDownload />}
+              position="left"
+              handleClick={downloadCV}
+            />
           </motion.div>
         </div>
       </div>
