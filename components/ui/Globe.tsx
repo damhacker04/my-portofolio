@@ -2,12 +2,12 @@
 import { useEffect, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
-import { useThree, Object3DNode, Canvas, extend } from "@react-three/fiber";
+import { useThree, Canvas, extend } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import countries from "@/data/globe.json";
 declare module "@react-three/fiber" {
   interface ThreeElements {
-    threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
+    threeGlobe: any;
   }
 }
 
@@ -65,7 +65,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
     | {
         size: number;
         order: number;
-        color: (t: number) => string;
+        color: string;
         lat: number;
         lng: number;
       }[]
@@ -122,14 +122,14 @@ export function Globe({ globeConfig, data }: WorldProps) {
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
+        color: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
         lat: arc.startLat,
         lng: arc.startLng,
       });
       points.push({
         size: defaultProps.pointSize,
         order: arc.order,
-        color: (t: number) => `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${1 - t})`,
+        color: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 1)`,
         lat: arc.endLat,
         lng: arc.endLng,
       });
@@ -186,7 +186,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
       .arcDashAnimateTime((e) => defaultProps.arcTime);
 
     globeRef.current
-      .pointsData(data)
+      .pointsData(globeData)
       .pointColor((e) => (e as { color: string }).color)
       .pointsMerge(true)
       .pointAltitude(0.0)
@@ -194,7 +194,10 @@ export function Globe({ globeConfig, data }: WorldProps) {
 
     globeRef.current
       .ringsData([])
-      .ringColor((e: any) => (t: any) => e.color(t))
+      .ringColor((e: any) => {
+        const c = (e as { color: string }).color;
+        return () => c;
+      })
       .ringMaxRadius(defaultProps.maxRings)
       .ringPropagationSpeed(RING_PROPAGATION_SPEED)
       .ringRepeatPeriod(
