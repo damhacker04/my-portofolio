@@ -10,7 +10,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize client collaboration, fostering open communication ",
+    title: "I value collaboration and clear communication",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full opacity-50",
@@ -119,7 +119,7 @@ export const projects = [
     des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
     img: "/RumahAman.png",
     iconLists: ["/kotlin.svg", "/javascript.svg"],
-    link: "https://github.com/DBizma/PAPB-Rumah-Aman",
+    link: "https://github.com/damhacker04/PAPB-Rumah-Aman",
   },
 ];
 
