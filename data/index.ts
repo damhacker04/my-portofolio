@@ -143,9 +143,9 @@ export const workExperience = [
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/NgantinYUKLogo3.png",
     startMonth: "Mar",
-    startYear: 2024,
-    endMonth: "Apr",
-    endYear: "2024",
+    startYear: 2025,
+    endMonth: "Jun",
+    endYear: 2025,
   },
   {
     id: 3,
