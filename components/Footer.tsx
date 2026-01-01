@@ -21,7 +21,7 @@ const Footer = () => {
           Want to build clean, impactful <span className="text-purple">digital</span> products?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          I&apos;m open to internships, project collaborations, and discussions.”
+          I&apos;m open to internships, project collaborations, and discussions.
         </p>
         <a href="mailto:adamemier16@gmail.com">
           <MagicButton
