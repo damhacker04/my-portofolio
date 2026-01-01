@@ -18,11 +18,10 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Let's connect and happy to discuss <span className="text-purple">internship, collaborations or freelance work </span>
+          Want to build clean, impactful <span className="text-purple">digital</span> products?
         </h1>
         <p className="text-white-200 md:mt-10 my-5 text-center">
-          Reach out to me today and let&apos;s discuss how I can help you
-          achieve your goals.
+          I&apos;m open to internships, project collaborations, and discussions.”
         </p>
         <a href="mailto:adamemier16@gmail.com">
           <MagicButton
