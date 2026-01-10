@@ -74,14 +74,54 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "NgantinYUK!",
-    des: "NgantinYUK is a web and mobile application designed to make food ordering easier within the campus canteen environment.",
-    img: "/NgantinYUK.png",
-    iconLists: ["/laravel.svg", "/php.svg","/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
-    link: "https://github.com/damhacker04/NgantinYUK",
+    title: " Seni Religi's Website ",
+    des: "Built authentication and item borrowing modules using NextAuth, designed PostgreSQL database schema, developed REST APIs for CRUD operations, implemented role-based access control (admin and user) and ensured data integrity through relational constraints and validation.",
+    img: "/SR_experience.jpg",
+    iconLists: ["/next.svg", "/javascript.svg"],
+    link: " Ongoing Project ",
   },
   {
     id: 2,
+    title: " Company Profile Web for PT. Saritama Dharma Buana ",
+    des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project)",
+    img: "/saritama_logo.png",
+    iconLists: ["/next.svg", "/javascript.svg"],
+    link: " Ongoing Project ",
+  },
+  {
+    id: 3,
+    title: "RumahAman",
+    des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
+    img: "/RumahAman.png",
+    iconLists: ["/kotlin.svg", "/javascript.svg"],
+    link: "https://github.com/damhacker04/PAPB-Rumah-Aman",
+  },
+  {
+    id: 4,
+    title: "Trajectoria",
+    des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
+    img: "/Trajectory.png",
+    iconLists: ["/flutter.svg", "/dart.svg", "/html.svg", ],
+    link: "https://github.com/damhacker04/trajectoria",
+  },
+  {
+    id: 5,
+    title: "SolarQuiz",
+    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    img: "/3DSolarSystem(1).svg",
+    iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
+    link: "https://project-akhir-komputer-grafis.vercel.app/",
+  },
+  {
+    id: 6,
+    title: "AdamFood",
+    des: "AdamFood is a digital ordering system that lets you pick your favorite dishes, add them to your cart, and pay right at the table using QRIS or cash—then just relax while your food is prepared.",
+    img: "/Adamfood.png",
+    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
+    link: "https://github.com/damhacker04/adamfood",
+  },
+  {
+    id: 7,
     title: "Adamflix",
     des: "Adamflix is a Laravel-based movie streaming platform with a full catalog, ratings, and playback that respects plan resolution (720p/1080p/4K) and device limits. Subscriptions are integrated with Midtrans, device access is enforced automatically, and the modern UI features “New Added/Trending” carousels plus search and categories.",
     img: "/Adamflix.svg",
@@ -90,85 +130,58 @@ export const projects = [
     link: "https://github.com/damhacker04/adamflix",
   },
   {
-    id: 3,
-    title: "AdamFood",
-    des: "AdamFood is a digital ordering system that lets you pick your favorite dishes, add them to your cart, and pay right at the table using QRIS or cash—then just relax while your food is prepared.",
-    img: "/Adamfood.png",
-    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    link: "https://github.com/damhacker04/adamfood",
+    id: 8,
+    title: "NgantinYUK!",
+    des: "NgantinYUK is a web and mobile application designed to make food ordering easier within the campus canteen environment.",
+    img: "/NgantinYUK.png",
+    iconLists: ["/laravel.svg", "/php.svg","/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
+    link: "https://github.com/damhacker04/NgantinYUK",
   },
-  {
-    id: 4,
-    title: "SolarQuiz",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/3DSolarSystem(1).svg",
-    iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
-    link: "https://project-akhir-komputer-grafis.vercel.app/",
-  },
-  {
-    id: 5,
-    title: "Trajectoria",
-    des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
-    img: "/Trajectory.png",
-    iconLists: ["/flutter.svg", "/dart.svg", "/html.svg", ],
-    link: "https://github.com/damhacker04/trajectoria",
-  },
-  {
-    id: 6,
-    title: "RumahAman",
-    des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
-    img: "/RumahAman.png",
-    iconLists: ["/kotlin.svg", "/javascript.svg"],
-    link: "https://github.com/damhacker04/PAPB-Rumah-Aman",
-  },
+  
+  
+  
+  
+  
+
+  
+  
 ];
 
 
 export const workExperience = [
   {
     id: 1,
-    title: "Event Staff HOLOGY 7.0 FILKOM 2024  ",
-    desc: "Actively involved as an event staff in one of FILKOM’s flagship events, contributing to event operations, coordination, and technical support to ensure smooth execution of large-scale academic and technology activities.",
+    title: "IT Development at PT. Saritama Dharma Buana",
+    desc: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project).",
     className: "md:col-span-2",
-    thumbnail: "/Hology.jpg",
-    startMonth: "Mar",
-    startYear: 2024,
-    endMonth: "Nov",
-    endYear: 2024,
+    thumbnail: "/saritama_logo_experience.png",
+    startMonth: "Jan",
+    startYear: 2026,
+    endMonth: "Now",
   },
   {
     id: 2,
-    title: "Backend of NgantinYUK Web Project ",
-    desc: "Developed and managed backend features for a campus canteen ordering system, including API development, database design, and integration to support seamless food ordering and transaction workflows.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/NgantinYUKLogo3.png",
-    startMonth: "Mar",
-    startYear: 2025,
-    endMonth: "Jun",
-    endYear: 2025,
+    title: "Head of Website Management and Information System",
+    desc: "Managing and Maintaining the UKM Seni Religi Brawijaya University Website",
+    className: "md:col-span-2",
+    thumbnail: "/SR.jpg",
+    startMonth: "Jan",
+    startYear: 2026,
+    endMonth: "Now",
   },
   {
     id: 3,
-    title: "Co-Head of Fahmil Qur'an UKM Seni Religi",
-    desc: "Served as Co-Head of the Fahmil Qur’an division, responsible for team coordination, training programs, competition preparation, and fostering a structured learning environment within the organization.",
+    title: "Particapant of Software Engineering Event by Telkom University Purwokerto",
+    desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential. ",
     className: "md:col-span-2",
-    thumbnail: "/SR.jpg",
-    startMonth: "Feb",
+    thumbnail: "/sevent_logo.png",
+    startMonth: "Nov",
     startYear: 2025,
     endMonth: "Dec",
     endYear: 2025,
   },
-  {
-    id: 4,
-    title: "System Analyst of Klinik Sehat Selalu Project",
-    desc: "Acted as a system analyst in a service-based healthcare system project, responsible for requirement analysis, system design, business process modeling, and aligning technical solutions with user and organizational needs.",
-    className: "md:col-span-2", // change to md:col-span-2
-    thumbnail: "/exp3.svg",
-    startMonth: "Aug",
-    startYear: 2025,
-    endMonth: "Dec",
-    endYear: 2025,
-  },
+  
+  
 ];
 
 export const socialMedia = [
