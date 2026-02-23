@@ -10,14 +10,14 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 const Hero = () => {
-  const roles = ["Full Stack Developer", "System Analyst"];
+  const roles = ["Full Stack Web Engineer", "System Analyst"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const downloadCV = useCallback(() => {
     const link = document.createElement("a");
-    link.href = "/kaesar-adam-cv.pdf";                // sesuaikan nama file di public/
-    link.download = "Kaesar-Adam-CV.pdf"; // nama file saat tersimpan
+    link.href = "/kaesar_adam_rafano_cv.pdf";                // sesuaikan nama file di public/
+    link.download = "kaesar_adam_rafano_cv.pdf"; // nama file saat tersimpan
     document.body.appendChild(link);
     link.click();
     link.remove();
@@ -48,7 +48,7 @@ const Hero = () => {
   }, [displayText, isDeleting, roleIndex]);
 
   return (
-     <div className="pb-20 pt-36">
+    <div className="pb-20 pt-36">
       {/* Background & spotlights */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]">
