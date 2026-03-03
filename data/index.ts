@@ -101,7 +101,7 @@ export const projects = [
     title: "Trajectoria",
     des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     img: "/Trajectory.png",
-    iconLists: ["/flutter.svg", "/dart.svg", "/html.svg", ],
+    iconLists: ["/flutter.svg", "/dart.svg", "/html.svg",],
     link: "https://github.com/damhacker04/trajectoria",
   },
   {
@@ -134,17 +134,17 @@ export const projects = [
     title: "NgantinYUK!",
     des: "NgantinYUK is a web and mobile application designed to make food ordering easier within the campus canteen environment.",
     img: "/NgantinYUK.png",
-    iconLists: ["/laravel.svg", "/php.svg","/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
+    iconLists: ["/laravel.svg", "/php.svg", "/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
     link: "https://github.com/damhacker04/NgantinYUK",
   },
-  
-  
-  
-  
-  
 
-  
-  
+
+
+
+
+
+
+
 ];
 
 
@@ -171,7 +171,7 @@ export const workExperience = [
   },
   {
     id: 3,
-    title: "Particapant of Software Engineering Event by Telkom University Purwokerto",
+    title: "Participant of Software Engineering Event by Telkom University Purwokerto",
     desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential. ",
     className: "md:col-span-2",
     thumbnail: "/sevent_logo.png",
@@ -180,8 +180,8 @@ export const workExperience = [
     endMonth: "Dec",
     endYear: 2025,
   },
-  
-  
+
+
 ];
 
 export const socialMedia = [

@@ -88,7 +88,7 @@ const Hero = () => {
 
           <TextGenerateEffect
             words=" Hi! My Name is Kaesar Adam Rafano"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            className="text-center text-[28px] md:text-5xl lg:text-6xl"
             highlightRange={[5, 7]} // Kaesar Adam Rafano
           />
 

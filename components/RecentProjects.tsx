@@ -7,8 +7,8 @@ import { PinContainer } from "./ui/Pin";
 
 const RecentProjects = () => {
   return (
-    
-    <div className="py-20" id ="projects">
+
+    <div className="py-20" id="projects">
       <h1 className="heading">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
@@ -64,7 +64,7 @@ const RecentProjects = () => {
                     {item.iconLists.map((icon, index) => (
                       <div
                         key={index}
-                        className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                        className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-9 h-9 flex justify-center items-center"
                         style={{
                           transform: `translateX(-${5 * index + 2}px)`,
                         }}
@@ -87,7 +87,7 @@ const RecentProjects = () => {
         })}
       </div>
     </div>
-    
+
   );
 };
 
