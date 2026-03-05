@@ -426,9 +426,7 @@ export default function PortfolioUI() {
                     <span className="inline-block origin-[70%_70%] animate-[wave_2.5s_ease-in-out_infinite]">👋</span>
                   </h1>
                   <p className="reveal stagger-1 text-base leading-7">
-                    I&apos;m a full stack developer focused on creating fast, responsive, and
-                    reliable digital products with clean user interfaces and maintainable
-                    backend architecture.
+                    I'm a Full Stack Engineer and System Analyst focused on designing scalable architectures and building fast, reliable digital products with clean user interfaces.
                   </p>
                 </div>
 
@@ -495,14 +493,9 @@ export default function PortfolioUI() {
                   Curious about me? Here you have it:
                 </h3>
                 <p className="reveal-right stagger-1 text-base leading-7">
-                  I enjoy building full-stack solutions with a strong focus on user
-                  experience, readable code, and clear collaboration with teams and clients.
-                </p>
-                <p className="reveal-right stagger-2 text-base leading-7">
-                  {aboutBits.slice(0, 2).join(" ")}
-                </p>
-                <p className="reveal-right stagger-3 text-base leading-7">
-                  {aboutBits.slice(2, 4).join(" ")}
+                  As a Full Stack Engineer and System Analyst, I enjoy designing scalable architectures and building digital solutions from the ground up. 
+                  I have a strong focus on user experience, readable code, and maintainable systems. 
+                  I believe that a great product is built on clear communication and seamless collaboration with teams and clients.
                 </p>
                 <p className="reveal-right stagger-4 text-base leading-7">Finally, some quick bits about me.</p>
 
@@ -519,9 +512,6 @@ export default function PortfolioUI() {
                   </ul>
                 </div>
 
-                <p className="reveal-right stagger-6 text-base leading-7">
-                  {aboutBits[4] ?? "I am open to freelance work and meaningful collaboration."}
-                </p>
               </div>
             </div>
           </div>
@@ -773,29 +763,7 @@ export default function PortfolioUI() {
               </div>
 
               {/* LinkedIn row */}
-              <div className="reveal stagger-3 flex items-center gap-3">
-                <FaLinkedin className="h-6 w-6 text-[rgb(var(--pf-gray-600)/1)] transition-colors duration-200 md:h-8 md:w-8" />
-                <a
-                  href={secondaryContactLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="break-all text-2xl font-semibold tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] transition-all duration-200 hover:underline hover:underline-offset-4 md:text-4xl md:tracking-[-0.02em]"
-                >
-                  {secondaryContactLabel}
-                </a>
-                <button
-                  type="button"
-                  onClick={() => handleCopy("secondary", secondaryContactLink)}
-                  aria-label="Copy secondary contact"
-                  className={`${iconButtonClass} ${copiedKey === "secondary" ? "copy-success" : ""}`}
-                >
-                  {copiedKey === "secondary" ? (
-                    <FaCheck className="h-5 w-5 text-emerald-500" />
-                  ) : (
-                    <FaRegCopy className="h-5 w-5 text-[rgb(var(--pf-gray-600)/1)]" />
-                  )}
-                </button>
-              </div>
+              
 
               <p className="reveal stagger-4 text-center text-sm transition-all duration-300">
                 {copiedKey ? (

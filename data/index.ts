@@ -8,7 +8,7 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I value collaboration and clear communication",
+    title: "💡 Tech enthusiast with a passion for continuous learning and problem-solving.",
     description: "",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]",
     imgClassName: "w-full h-full opacity-50",
@@ -18,7 +18,7 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm very flexible with time zone communications",
+    title: "⚙️ Highly adaptable and flexible with time zone communications.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -28,7 +28,7 @@ export const gridItems = [
   },
   {
     id: 3,
-    title: "My tech stack",
+    title: "🏗️ Passionate about structured systems, currently exploring AI integrations and advanced architectures",
     description: "I constantly try to improve",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -38,7 +38,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "Tech enthusiast with a passion for development.",
+    title: "🚀 Currently building an integrated Web and Mobile Platform",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -69,23 +69,23 @@ export const gridItems = [
 ];
 
 export const projects = [
-  {
+{
     id: 1,
-    title: "Seni Religi's Website",
-    des: "Built authentication and item borrowing modules using NextAuth, designed PostgreSQL database schema, developed REST APIs for CRUD operations, implemented role-based access control (admin and user) and ensured data integrity through relational constraints and validation.",
-    img: "/SR_experience.jpg",
-    iconLists: ["/next.svg", "/javascript.svg"],
-    githubLink: "",
-    liveUrl: "",
+    title: "Klinik Sehat Selalu",
+    des: "Analyzed system requirements and developed a comprehensive clinic management platform. Designed a structured database for patient records, implemented secure appointment scheduling features, and built an intuitive user interface to streamline daily clinic operations.",
+    img: "/klinik_web.png", 
+    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"], // Sesuaikan jika menggunakan Next.js atau stack lain
+    githubLink: "https://github.com/damhacker04/klinik-sehat-selalu", 
+    liveUrl: "https://klinik-sehat-selalu.vercel.app", 
   },
   {
     id: 2,
-    title: "Company Profile Web for PT. Saritama Dharma Buana",
+    title: "Company Profile Web PT. Saritama Dharma Buana",
     des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project)",
-    img: "/saritama_logo.png",
+    img: "/saritama_web.png",
     iconLists: ["/next.svg", "/javascript.svg"],
-    githubLink: "",
-    liveUrl: "",
+    githubLink: "https://github.com/damhacker04/saritama",
+    liveUrl: "https://saritama.vercel.app/",
   },
   {
     id: 3,
@@ -109,9 +109,9 @@ export const projects = [
     id: 5,
     title: "SolarQuiz",
     des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/3DSolarSystem(1).svg",
+    img: "/solar3d_web.png",
     iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
-    githubLink: "",
+    githubLink: "https://github.com/damhacker04/project-akhir-komputer-grafis",
     liveUrl: "https://project-akhir-komputer-grafis.vercel.app/",
   },
   {
@@ -123,24 +123,9 @@ export const projects = [
     githubLink: "https://github.com/damhacker04/adamfood",
     liveUrl: "",
   },
-  {
-    id: 7,
-    title: "Adamflix",
-    des: "Adamflix is a Laravel-based movie streaming platform with a full catalog, ratings, and playback that respects plan resolution (720p/1080p/4K) and device limits. Subscriptions are integrated with Midtrans, device access is enforced automatically, and the modern UI features \u201cNew Added/Trending\u201d carousels plus search and categories.",
-    img: "/Adamflix.svg",
-    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    githubLink: "https://github.com/damhacker04/adamflix",
-    liveUrl: "",
-  },
-  {
-    id: 8,
-    title: "NgantinYUK!",
-    des: "NgantinYUK is a web and mobile application designed to make food ordering easier within the campus canteen environment.",
-    img: "/NgantinYUK.png",
-    iconLists: ["/laravel.svg", "/php.svg", "/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
-    githubLink: "https://github.com/damhacker04/NgantinYUK",
-    liveUrl: "",
-  },
+
+
+  
 ];
 
 export const workExperience = [
