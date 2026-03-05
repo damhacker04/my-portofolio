@@ -33,6 +33,23 @@
     --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
+
+    --pf-gray-default: 255 255 255;
+    --pf-gray-50: 249 250 251;
+    --pf-gray-100: 243 244 246;
+    --pf-gray-200: 229 231 235;
+    --pf-gray-300: 209 213 219;
+    --pf-gray-400: 156 163 175;
+    --pf-gray-500: 107 114 128;
+    --pf-gray-600: 75 85 99;
+    --pf-gray-700: 55 65 81;
+    --pf-gray-800: 31 41 55;
+    --pf-gray-900: 17 24 39;
+    --pf-gray-950: 3 7 18;
+
+    --pf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --pf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --pf-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
 
   .dark {
@@ -63,16 +80,43 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    --pf-gray-default: 3 7 18;
+    --pf-gray-50: 17 24 39;
+    --pf-gray-100: 31 41 55;
+    --pf-gray-200: 55 65 81;
+    --pf-gray-300: 75 85 99;
+    --pf-gray-400: 107 114 128;
+    --pf-gray-500: 156 163 175;
+    --pf-gray-600: 209 213 219;
+    --pf-gray-700: 229 231 235;
+    --pf-gray-800: 243 244 246;
+    --pf-gray-900: 249 250 251;
+    --pf-gray-950: 255 255 255;
+
+    --pf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+    --pf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.35);
+    --pf-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
   }
 }
 
 @layer base {
-  * {
-    @apply border-border !scroll-smooth;
+  html {
+    scroll-behavior: smooth;
   }
+
+  * {
+    @apply border-border;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+    background-color: rgb(var(--pf-gray-default) / 1);
+    color: rgb(var(--pf-gray-600) / 1);
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
+
   button {
     @apply active:outline-none;
   }
@@ -82,4 +126,218 @@
   .heading {
     @apply font-bold text-4xl md:text-5xl text-center;
   }
+}
+
+/* ── Scroll-reveal animation classes ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-1 {
+  transition-delay: 0.06s;
+}
+
+.stagger-2 {
+  transition-delay: 0.12s;
+}
+
+.stagger-3 {
+  transition-delay: 0.18s;
+}
+
+.stagger-4 {
+  transition-delay: 0.24s;
+}
+
+.stagger-5 {
+  transition-delay: 0.30s;
+}
+
+.stagger-6 {
+  transition-delay: 0.36s;
+}
+
+.stagger-7 {
+  transition-delay: 0.42s;
+}
+
+.stagger-8 {
+  transition-delay: 0.48s;
+}
+
+.stagger-9 {
+  transition-delay: 0.54s;
+}
+
+.stagger-10 {
+  transition-delay: 0.60s;
+}
+
+.stagger-11 {
+  transition-delay: 0.66s;
+}
+
+.stagger-12 {
+  transition-delay: 0.72s;
+}
+
+.stagger-13 {
+  transition-delay: 0.78s;
+}
+
+.stagger-14 {
+  transition-delay: 0.84s;
+}
+
+.stagger-15 {
+  transition-delay: 0.90s;
+}
+
+/* Theme toggle icon rotation */
+.theme-icon-enter {
+  animation: themeIconSpin 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes themeIconSpin {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* Mobile menu slide */
+.mobile-menu-enter {
+  animation: slideDown 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Copy feedback pulse */
+.copy-success {
+  animation: copyPulse 0.5s ease;
+}
+
+@keyframes copyPulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Skill icon glow on hover */
+.skill-icon-glow {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skill-icon-glow:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.3));
+}
+
+.dark .skill-icon-glow:hover {
+  filter: drop-shadow(0 0 10px rgba(165, 180, 252, 0.4));
+}
+
+/* Profile photo gradient ring */
+.photo-ring {
+  position: relative;
+}
+
+.photo-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa, #6366f1);
+  background-size: 300% 300%;
+  animation: gradientShift 4s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Navbar scroll shadow */
+.nav-scrolled {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.dark .nav-scrolled {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
 }

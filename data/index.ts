@@ -1,5 +1,3 @@
-import { link } from "fs";
-
 export const navItems = [
   { name: "About", link: "#about" },
   { name: "Projects", link: "#projects" },
@@ -48,7 +46,6 @@ export const gridItems = [
     img: "/grid.svg",
     spareImg: "/b4.svg",
   },
-
   {
     id: 5,
     title: "Currently building a Web and Mobile Platform",
@@ -74,19 +71,21 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: " Seni Religi's Website ",
+    title: "Seni Religi's Website",
     des: "Built authentication and item borrowing modules using NextAuth, designed PostgreSQL database schema, developed REST APIs for CRUD operations, implemented role-based access control (admin and user) and ensured data integrity through relational constraints and validation.",
     img: "/SR_experience.jpg",
     iconLists: ["/next.svg", "/javascript.svg"],
-    link: " Ongoing Project ",
+    githubLink: "",
+    liveUrl: "",
   },
   {
     id: 2,
-    title: " Company Profile Web for PT. Saritama Dharma Buana ",
+    title: "Company Profile Web for PT. Saritama Dharma Buana",
     des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project)",
     img: "/saritama_logo.png",
     iconLists: ["/next.svg", "/javascript.svg"],
-    link: " Ongoing Project ",
+    githubLink: "",
+    liveUrl: "",
   },
   {
     id: 3,
@@ -94,15 +93,17 @@ export const projects = [
     des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
     img: "/RumahAman.png",
     iconLists: ["/kotlin.svg", "/javascript.svg"],
-    link: "https://github.com/damhacker04/PAPB-Rumah-Aman",
+    githubLink: "https://github.com/damhacker04/PAPB-Rumah-Aman",
+    liveUrl: "",
   },
   {
     id: 4,
     title: "Trajectoria",
     des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     img: "/Trajectory.png",
-    iconLists: ["/flutter.svg", "/dart.svg", "/html.svg",],
-    link: "https://github.com/damhacker04/trajectoria",
+    iconLists: ["/flutter.svg", "/dart.svg", "/html.svg"],
+    githubLink: "https://github.com/damhacker04/trajectoria",
+    liveUrl: "",
   },
   {
     id: 5,
@@ -110,24 +111,26 @@ export const projects = [
     des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
     img: "/3DSolarSystem(1).svg",
     iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
-    link: "https://project-akhir-komputer-grafis.vercel.app/",
+    githubLink: "",
+    liveUrl: "https://project-akhir-komputer-grafis.vercel.app/",
   },
   {
     id: 6,
     title: "AdamFood",
-    des: "AdamFood is a digital ordering system that lets you pick your favorite dishes, add them to your cart, and pay right at the table using QRIS or cash—then just relax while your food is prepared.",
+    des: "AdamFood is a digital ordering system that lets you pick your favorite dishes, add them to your cart, and pay right at the table using QRIS or cash\u2014then just relax while your food is prepared.",
     img: "/Adamfood.png",
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    link: "https://github.com/damhacker04/adamfood",
+    githubLink: "https://github.com/damhacker04/adamfood",
+    liveUrl: "",
   },
   {
     id: 7,
     title: "Adamflix",
-    des: "Adamflix is a Laravel-based movie streaming platform with a full catalog, ratings, and playback that respects plan resolution (720p/1080p/4K) and device limits. Subscriptions are integrated with Midtrans, device access is enforced automatically, and the modern UI features “New Added/Trending” carousels plus search and categories.",
+    des: "Adamflix is a Laravel-based movie streaming platform with a full catalog, ratings, and playback that respects plan resolution (720p/1080p/4K) and device limits. Subscriptions are integrated with Midtrans, device access is enforced automatically, and the modern UI features \u201cNew Added/Trending\u201d carousels plus search and categories.",
     img: "/Adamflix.svg",
-    // Tech stack: Laravel, PHP, HTML, Tailwind CSS, JavaScript (pastikan ikon tersedia di /public).
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    link: "https://github.com/damhacker04/adamflix",
+    githubLink: "https://github.com/damhacker04/adamflix",
+    liveUrl: "",
   },
   {
     id: 8,
@@ -135,18 +138,10 @@ export const projects = [
     des: "NgantinYUK is a web and mobile application designed to make food ordering easier within the campus canteen environment.",
     img: "/NgantinYUK.png",
     iconLists: ["/laravel.svg", "/php.svg", "/re.svg", "/tail.svg", "/javascript.svg", "/ts.svg"],
-    link: "https://github.com/damhacker04/NgantinYUK",
+    githubLink: "https://github.com/damhacker04/NgantinYUK",
+    liveUrl: "",
   },
-
-
-
-
-
-
-
-
 ];
-
 
 export const workExperience = [
   {
@@ -172,7 +167,7 @@ export const workExperience = [
   {
     id: 3,
     title: "Participant of Software Engineering Event by Telkom University Purwokerto",
-    desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential. ",
+    desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     className: "md:col-span-2",
     thumbnail: "/sevent_logo.png",
     startMonth: "Nov",
@@ -180,8 +175,6 @@ export const workExperience = [
     endMonth: "Dec",
     endYear: 2025,
   },
-
-
 ];
 
 export const socialMedia = [

@@ -15,12 +15,10 @@ const RecentProjects = () => {
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
         {projects.map((item) => {
-          const normalizedLink = item.link
-            ? item.link.toLowerCase().replace(/\s+/g, "")
-            : "";
-          const isOngoing = normalizedLink.includes("ongoing");
-          const linkLabel = isOngoing ? "On Going" : item.link;
-          const linkHref = isOngoing ? undefined : item.link;
+          const resolvedLink = item.liveUrl || item.githubLink || "";
+          const isOngoing = !resolvedLink;
+          const linkLabel = isOngoing ? "On Going" : resolvedLink;
+          const linkHref = isOngoing ? undefined : resolvedLink;
 
           return (
             <div
