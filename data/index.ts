@@ -161,7 +161,7 @@ export const workExperience = [
       "Architected the core database schema as Lead Back-End Developer, coordinating a cross-functional team of 3 (frontend dev, UI/UX designer).",
     ],
     className: "md:col-span-2",
-    thumbnail: "/SR.jpg",
+    thumbnail: "/logo_sr.png",
     startMonth: "Jan",
     startYear: 2026,
     endMonth: "Present",
