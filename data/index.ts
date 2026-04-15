@@ -154,7 +154,7 @@ export const workExperience = [
   },
   {
     id: 2,
-    title: "Head of Website Development & Information Systems | UKM Seni Religi — Brawijaya University",
+    title: "Head of Website Development & Information Systems | UKM Seni Religi - Brawijaya University",
     desc: "",
     descList: [
       "Led full-cycle development of the organization's web platform for 100+ active members, covering VPS setup and object storage infrastructure.",
@@ -186,7 +186,7 @@ export const workExperience = [
     title: "Participant of Software Engineering Event by Telkom University Purwokerto",
     desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     className: "md:col-span-2",
-    thumbnail: "/sevent_logo.png",
+    thumbnail: "/logo_telkom_purwokerto.png",
     startMonth: "Nov",
     startYear: 2025,
     endMonth: "Dec",
