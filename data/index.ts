@@ -69,17 +69,27 @@ export const gridItems = [
 ];
 
 export const projects = [
-{
+  {
     id: 1,
-    title: "Klinik Sehat Selalu",
-    des: "Analyzed system requirements and developed a comprehensive clinic management platform. Designed a structured database for patient records, implemented secure appointment scheduling features, and built an intuitive user interface to streamline daily clinic operations.",
-    img: "/klinik_web.png", 
-    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"], // Sesuaikan jika menggunakan Next.js atau stack lain
-    githubLink: "https://github.com/damhacker04/klinik-sehat-selalu", 
-    liveUrl: "https://klinik-sehat-selalu.vercel.app", 
+    title: "Tripaw - AI Trip Planner",
+    des: "An AI-powered travel planning application that generates personalized itineraries based on user preferences and budget. Built and delivered end-to-end within a 48-hour hackathon sprint, covering frontend UI, REST API, and LLM-based recommendation engine.",
+    img: "/landing-page-tripaw.png",
+    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
+    githubLink: "https://github.com/ghufronbagaskara/travel-itinerery-ai",
+    liveUrl: "https://tripaw.ghufronbagas.dev/",
   },
   {
     id: 2,
+    title: "TDR Seamless Transaction",
+    des: "A full-featured Laravel 12 e-commerce platform with Midtrans Snap payment gateway, Telegram Bot API for real-time order notifications, Redis job queues for async processing, and Docker + Nginx containerization for production deployment.",
+    img: "/landing-page-tdr.png",
+    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
+    githubLink: "https://github.com/SutaSS/TDR-Seamless-Transaction",
+    liveUrl: "",
+  },
+
+  {
+    id: 3,
     title: "Company Profile Web PT. Saritama Dharma Buana",
     des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project)",
     img: "/saritama_web.png",
@@ -87,8 +97,18 @@ export const projects = [
     githubLink: "https://github.com/damhacker04/saritama",
     liveUrl: "https://saritama.vercel.app/",
   },
+
   {
-    id: 3,
+    id: 4,
+    title: "Klinik Sehat Selalu",
+    des: "Analyzed system requirements and developed a comprehensive clinic management platform. Designed a structured database for patient records, implemented secure appointment scheduling features, and built an intuitive user interface to streamline daily clinic operations.",
+    img: "/klinik_web.png",
+    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"], // Sesuaikan jika menggunakan Next.js atau stack lain
+    githubLink: "https://github.com/damhacker04/klinik-sehat-selalu",
+    liveUrl: "https://klinik-sehat-selalu.vercel.app",
+  },
+  {
+    id: 5,
     title: "RumahAman",
     des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
     img: "/RumahAman.png",
@@ -97,7 +117,7 @@ export const projects = [
     liveUrl: "",
   },
   {
-    id: 4,
+    id: 6,
     title: "Trajectoria",
     des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     img: "/Trajectory.png",
@@ -106,7 +126,7 @@ export const projects = [
     liveUrl: "",
   },
   {
-    id: 5,
+    id: 7,
     title: "SolarQuiz",
     des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
     img: "/solar3d_web.png",
@@ -114,57 +134,22 @@ export const projects = [
     githubLink: "https://github.com/damhacker04/project-akhir-komputer-grafis",
     liveUrl: "https://project-akhir-komputer-grafis.vercel.app/",
   },
-  {
-    id: 6,
-    title: "AdamFood",
-    des: "AdamFood is a digital ordering system that lets you pick your favorite dishes, add them to your cart, and pay right at the table using QRIS or cash\u2014then just relax while your food is prepared.",
-    img: "/Adamfood.png",
-    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg", "/html.svg", "/css.svg"],
-    githubLink: "https://github.com/damhacker04/adamfood",
-    liveUrl: "",
-  },
-  {
-    id: 7,
-    title: "AI Trip Planner",
-    des: "An AI-powered travel planning application that generates personalized itineraries based on user preferences and budget. Built and delivered end-to-end within a 48-hour hackathon sprint, covering frontend UI, REST API, and LLM-based recommendation engine.",
-    img: "/p1.svg",
-    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
-    githubLink: "",
-    liveUrl: "",
-  },
-  {
-    id: 8,
-    title: "TDR Seamless Transaction",
-    des: "A full-featured Laravel 12 e-commerce platform with Midtrans Snap payment gateway, Telegram Bot API for real-time order notifications, Redis job queues for async processing, and Docker + Nginx containerization for production deployment.",
-    img: "/p2.svg",
-    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
-    githubLink: "https://github.com/SutaSS/TDR-Seamless-Transaction",
-    liveUrl: "",
-  },
-  {
-    id: 9,
-    title: "NgantinYUK!",
-    des: "A digital wedding planning platform helping couples manage vendor selection, budgeting, and guest lists in one integrated application. Delivered as a collaborative full-stack project.",
-    img: "/NgantinYUK.png",
-    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
-    githubLink: "",
-    liveUrl: "",
-  },
+
 ];
 
 export const workExperience = [
   {
     id: 1,
-    title: "IT Development at PT. Saritama Dharma Buana",
+    title: "Full-Stack Engineer & System Analyst | Maxy Academy - Back End Bootcamp",
     desc: "",
     descList: [
-      "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories: Pest, Rodent & Termite Control.",
-      "Implemented mobile-first responsive design with SEO optimization, WhatsApp CTA, FAQ accordion, project gallery, and a dedicated 5-year warranty section.",
+      "Completed 2 intensive hackathons, delivering AI Trip Planner (Back-End) and TDR Seamless Transaction (System Analyst) under tight time constraints.",
+      "Applied end-to-end development and system architecture skills across both frontend and backend layers.",
     ],
     className: "md:col-span-2",
-    thumbnail: "/saritama_logo_experience.png",
-    startMonth: "Dec",
-    startYear: 2025,
+    thumbnail: "/m-logo.png",
+    startMonth: "Feb",
+    startYear: 2026,
     endMonth: "Present",
   },
   {
@@ -182,21 +167,22 @@ export const workExperience = [
     endMonth: "Present",
   },
   {
-    id: 4,
-    title: "Full-Stack Engineer & System Analyst | Maxy Academy — Full-Stack Bootcamp",
+    id: 3,
+    title: "IT Development at PT. Saritama Dharma Buana",
     desc: "",
     descList: [
-      "Completed 2 intensive hackathons, delivering AI Trip Planner (Full-Stack) and TDR Seamless Transaction (System Analyst) under tight time constraints.",
-      "Applied end-to-end development and system architecture skills across both frontend and backend layers.",
+      "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories: Pest, Rodent & Termite Control.",
+      "Implemented mobile-first responsive design with SEO optimization, WhatsApp CTA, FAQ accordion, project gallery, and a dedicated 5-year warranty section.",
     ],
     className: "md:col-span-2",
-    thumbnail: "/exp2.svg",
-    startMonth: "Feb",
-    startYear: 2026,
+    thumbnail: "/saritama_logo_experience.png",
+    startMonth: "Dec",
+    startYear: 2025,
     endMonth: "Present",
   },
+
   {
-    id: 3,
+    id: 4,
     title: "Participant of Software Engineering Event by Telkom University Purwokerto",
     desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
     className: "md:col-span-2",
