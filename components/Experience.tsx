@@ -56,9 +56,20 @@ const Experience = () => {
                   <p className="text-start text-sm text-white/70 mt-2">
                     {formatRange(card)}
                   </p>
-                  <p className="text-start text-white-100 mt-3 font-semibold">
-                    {card.desc}
-                  </p>
+                  {card.descList ? (
+                    <ul className="mt-3 space-y-1.5">
+                      {card.descList.map((item: string, idx: number) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-white-100">
+                          <span className="mt-0.5 shrink-0 text-purple-400">▸</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-start text-white-100 mt-3 font-semibold">
+                      {card.desc}
+                    </p>
+                  )}
                 </div>
               </div>
             </Button>

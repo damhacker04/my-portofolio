@@ -18,7 +18,7 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "⚙️ Highly adaptable and flexible with time zone communications.",
+    title: "⚙️ Open to remote freelance work and international internship opportunities. Adaptable across time zones.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -123,31 +123,77 @@ export const projects = [
     githubLink: "https://github.com/damhacker04/adamfood",
     liveUrl: "",
   },
-
-
-  
+  {
+    id: 7,
+    title: "AI Trip Planner",
+    des: "An AI-powered travel planning application that generates personalized itineraries based on user preferences and budget. Built and delivered end-to-end within a 48-hour hackathon sprint, covering frontend UI, REST API, and LLM-based recommendation engine.",
+    img: "/p1.svg",
+    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
+    githubLink: "",
+    liveUrl: "",
+  },
+  {
+    id: 8,
+    title: "TDR Seamless Transaction",
+    des: "A full-featured Laravel 12 e-commerce platform with Midtrans Snap payment gateway, Telegram Bot API for real-time order notifications, Redis job queues for async processing, and Docker + Nginx containerization for production deployment.",
+    img: "/p2.svg",
+    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
+    githubLink: "https://github.com/SutaSS/TDR-Seamless-Transaction",
+    liveUrl: "",
+  },
+  {
+    id: 9,
+    title: "NgantinYUK!",
+    des: "A digital wedding planning platform helping couples manage vendor selection, budgeting, and guest lists in one integrated application. Delivered as a collaborative full-stack project.",
+    img: "/NgantinYUK.png",
+    iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
+    githubLink: "",
+    liveUrl: "",
+  },
 ];
 
 export const workExperience = [
   {
     id: 1,
     title: "IT Development at PT. Saritama Dharma Buana",
-    desc: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project).",
+    desc: "",
+    descList: [
+      "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories: Pest, Rodent & Termite Control.",
+      "Implemented mobile-first responsive design with SEO optimization, WhatsApp CTA, FAQ accordion, project gallery, and a dedicated 5-year warranty section.",
+    ],
     className: "md:col-span-2",
     thumbnail: "/saritama_logo_experience.png",
-    startMonth: "Jan",
-    startYear: 2026,
-    endMonth: "Now",
+    startMonth: "Dec",
+    startYear: 2025,
+    endMonth: "Present",
   },
   {
     id: 2,
-    title: "Head of Website Management and Information System",
-    desc: "Managing and Maintaining the UKM Seni Religi Brawijaya University Website",
+    title: "Head of Website Development & Information Systems | UKM Seni Religi — Brawijaya University",
+    desc: "",
+    descList: [
+      "Led full-cycle development of the organization's web platform for 100+ active members, covering VPS setup and object storage infrastructure.",
+      "Architected the core database schema as Lead Back-End Developer, coordinating a cross-functional team of 3 (frontend dev, UI/UX designer).",
+    ],
     className: "md:col-span-2",
     thumbnail: "/SR.jpg",
     startMonth: "Jan",
     startYear: 2026,
-    endMonth: "Now",
+    endMonth: "Present",
+  },
+  {
+    id: 4,
+    title: "Full-Stack Engineer & System Analyst | Maxy Academy — Full-Stack Bootcamp",
+    desc: "",
+    descList: [
+      "Completed 2 intensive hackathons, delivering AI Trip Planner (Full-Stack) and TDR Seamless Transaction (System Analyst) under tight time constraints.",
+      "Applied end-to-end development and system architecture skills across both frontend and backend layers.",
+    ],
+    className: "md:col-span-2",
+    thumbnail: "/exp2.svg",
+    startMonth: "Feb",
+    startYear: 2026,
+    endMonth: "Present",
   },
   {
     id: 3,
