@@ -91,7 +91,7 @@ export const projects = [
   {
     id: 3,
     title: "Company Profile Web PT. Saritama Dharma Buana",
-    des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment (solo project)",
+    des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment",
     img: "/saritama_web.png",
     iconLists: ["/next.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/saritama",
@@ -101,7 +101,7 @@ export const projects = [
   {
     id: 4,
     title: "Klinik Sehat Selalu",
-    des: "Analyzed system requirements and developed a comprehensive clinic management platform. Designed a structured database for patient records, implemented secure appointment scheduling features, and built an intuitive user interface to streamline daily clinic operations.",
+    des: "Served as System Analyst for a full-featured clinic management platform. Architected the relational database schema for patient records, designed appointment scheduling workflows, and defined system requirements for the UI and backend integration. Built with Next.js and TypeScript with a focus on streamlining daily clinic operations.",
     img: "/klinik_web.png",
     iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"], // Sesuaikan jika menggunakan Next.js atau stack lain
     githubLink: "https://github.com/damhacker04/klinik-sehat-selalu",
@@ -110,7 +110,7 @@ export const projects = [
   {
     id: 5,
     title: "RumahAman",
-    des: "Rumah Aman is an Android-based application developed to help prevent and address sexual violence through digital solutions.",
+    des: "Served as System Analyst and Back-End contributor for an Android application helping victims of violence find appropriate support services. Architected the Firestore database schema covering users, tips, recommendations, and notification collections. Integrated a real-time AI chat assistant powered by Groq API (Llama 3.3 70B) with response times under 2 seconds, and defined the multi-step recommendation engine logic matching victims to legal, psychological, and medical services.",
     img: "/RumahAman.png",
     iconLists: ["/kotlin.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/PAPB-Rumah-Aman",
@@ -119,7 +119,7 @@ export const projects = [
   {
     id: 6,
     title: "Trajectoria",
-    des: "Trajectoria is a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
+    des: "Served as System Analyst for a cross-platform mobile application built with Flutter, designed to help young people discover and develop their potential through digital competitions, interactive learning modules, and AI-powered automated insights. Responsible for defining system architecture, user flow diagrams, and feature specifications across Android and iOS platforms.",
     img: "/Trajectory.png",
     iconLists: ["/flutter.svg", "/dart.svg", "/html.svg"],
     githubLink: "https://github.com/damhacker04/trajectoria",
@@ -143,7 +143,7 @@ export const workExperience = [
     title: "Full-Stack Engineer & System Analyst | Maxy Academy - Back End Bootcamp",
     desc: "",
     descList: [
-      "Completed 2 intensive hackathons, delivering AI Trip Planner (Back-End) and TDR Seamless Transaction (System Analyst) under tight time constraints.",
+      "Completed 2 intensive hackathons, delivering AI Trip Planner (Full-Stack) and TDR Seamless Transaction (System Analyst) under tight time constraints.",
       "Applied end-to-end development and system architecture skills across both frontend and backend layers.",
     ],
     className: "md:col-span-2",
