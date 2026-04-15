@@ -705,7 +705,7 @@ export default function PortfolioUI() {
                       {item.title}
                     </p>
                     <ul className="flex list-disc flex-col gap-2 md:gap-1">
-                      {toBullets(item.desc).map((bullet) => (
+                      {((item as any).descList ?? toBullets(item.desc)).map((bullet: string) => (
                         <li key={`${item.id}-${bullet}`} className="text-base">
                           {bullet}
                         </li>
