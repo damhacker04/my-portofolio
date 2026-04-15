@@ -20,9 +20,9 @@ import {
 import { gridItems, projects, socialMedia, workExperience } from "@/data";
 
 /* ─── constants ─── */
-const CV_PATH = "/kaesar_adam_rafano_cv.pdf";
+const CV_PATH = "/my_cv_updated.pdf";
 const CONTACT_EMAIL = "adamemier16@gmail.com";
-const LOCATION = "Malang, Indonesia";
+const LOCATION = "Jakarta, Indonesia";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -493,8 +493,8 @@ export default function PortfolioUI() {
                   Curious about me? Here you have it:
                 </h3>
                 <p className="reveal-right stagger-1 text-base leading-7">
-                  As a Full Stack Engineer and System Analyst, I enjoy designing scalable architectures and building digital solutions from the ground up. 
-                  I have a strong focus on user experience, readable code, and maintainable systems. 
+                  As a Full Stack Engineer and System Analyst, I enjoy designing scalable architectures and building digital solutions from the ground up.
+                  I have a strong focus on user experience, readable code, and maintainable systems.
                   I believe that a great product is built on clear communication and seamless collaboration with teams and clients.
                 </p>
                 <p className="reveal-right stagger-4 text-base leading-7">Finally, some quick bits about me.</p>
@@ -763,7 +763,7 @@ export default function PortfolioUI() {
               </div>
 
               {/* LinkedIn row */}
-              
+
 
               <p className="reveal stagger-4 text-center text-sm transition-all duration-300">
                 {copiedKey ? (
