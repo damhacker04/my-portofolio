@@ -74,7 +74,7 @@ export const projects = [
     title: "Tripaw - AI Trip Planner",
     des: "An AI-powered travel planning application that generates personalized itineraries based on user preferences and budget. Built and delivered end-to-end within a 48-hour hackathon sprint, covering frontend UI, REST API, and LLM-based recommendation engine.",
     img: "/landing-page-tripaw.png",
-    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
+    iconLists: ["/laravel.svg", "php.svg", "/javascript.svg", "/tail.svg"],
     githubLink: "https://github.com/ghufronbagaskara/travel-itinerery-ai",
     liveUrl: "https://tripaw.ghufronbagas.dev/",
   },
