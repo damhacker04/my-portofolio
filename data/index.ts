@@ -18,7 +18,7 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "⚙️ Open to remote freelance work and international internship opportunities. Adaptable across time zones.",
+    title: "⚙️ PHP · Laravel · JavaScript · Next.js — shipping production systems since before graduation.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -28,7 +28,7 @@ export const gridItems = [
   },
   {
     id: 3,
-    title: "🏗️ Passionate about structured systems, currently exploring AI integrations and advanced architectures",
+    title: "🏗️ Already integrated Google Gemini, Groq API, and Midtrans in production — not just exploring.",
     description: "I constantly try to improve",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
@@ -38,7 +38,7 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "🚀 Currently building an integrated Web and Mobile Platform",
+    title: "🚀 Currently leading a 3-person team building a web platform for 100+ users.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -72,45 +72,43 @@ export const projects = [
   {
     id: 1,
     title: "Tripaw - AI Trip Planner",
-    des: "An AI-powered travel planning application that generates personalized itineraries based on user preferences and budget. Built and delivered end-to-end within a 48-hour hackathon sprint, covering frontend UI, REST API, and LLM-based recommendation engine.",
+    des: "An AI-powered travel planning application built entirely within the Laravel ecosystem — Livewire for reactive frontend UI, REST API backend, and Google Gemini API (gemini-2.5-flash) for real-time personalized itinerary generation. Built and delivered end-to-end within a 48-hour hackathon sprint.",
     img: "/landing-page-tripaw.png",
-    iconLists: ["/laravel.svg", "php.svg", "/javascript.svg", "/tail.svg"],
-    githubLink: "https://github.com/ghufronbagaskara/travel-itinerery-ai",
+    iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
+    githubLink: "https://github.com/damhacker04/travel-itinerery-ai",
     liveUrl: "https://tripaw.ghufronbagas.dev/",
   },
   {
     id: 2,
     title: "TDR Seamless Transaction",
-    des: "A full-featured Laravel 12 e-commerce platform with Midtrans Snap payment gateway, Telegram Bot API for real-time order notifications, Redis job queues for async processing, and Docker + Nginx containerization for production deployment.",
+    des: "A full-featured Laravel 12 e-commerce platform with Midtrans Snap payment gateway, Telegram Bot API for real-time order notifications, Redis job queues for async processing, and Docker + Nginx containerization for production deployment. Documented 20+ REST API endpoints via Postman.",
     img: "/landing-page-tdr.png",
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
     githubLink: "https://github.com/SutaSS/TDR-Seamless-Transaction",
     liveUrl: "",
   },
-
   {
     id: 3,
     title: "Company Profile Web PT. Saritama Dharma Buana",
-    des: "Developed a responsive company profile website using Next.js, implemented SEO-friendly pages, reusable UI components, and deployed to production. Delivered end-to-end from requirements gathering to deployment",
+    des: "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories: Pest, Rodent & Termite Control — replacing zero online presence with a fully production-ready platform in under 4 weeks. Implemented SEO optimization, WhatsApp CTA, FAQ accordion, and project gallery.",
     img: "/saritama_web.png",
     iconLists: ["/next.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/saritama",
     liveUrl: "https://saritama.vercel.app/",
   },
-
   {
     id: 4,
     title: "Klinik Sehat Selalu",
     des: "Served as System Analyst for a full-featured clinic management platform. Architected the relational database schema for patient records, designed appointment scheduling workflows, and defined system requirements for the UI and backend integration. Built with Next.js and TypeScript with a focus on streamlining daily clinic operations.",
     img: "/klinik_web.png",
-    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"], // Sesuaikan jika menggunakan Next.js atau stack lain
+    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
     githubLink: "https://github.com/damhacker04/klinik-sehat-selalu",
     liveUrl: "https://klinik-sehat-selalu.vercel.app",
   },
   {
     id: 5,
     title: "RumahAman",
-    des: "Served as System Analyst and Back-End contributor for an Android application helping victims of violence find appropriate support services. Architected the Firestore database schema covering users, tips, recommendations, and notification collections. Integrated a real-time AI chat assistant powered by Groq API (Llama 3.3 70B) with response times under 2 seconds, and defined the multi-step recommendation engine logic matching victims to legal, psychological, and medical services.",
+    des: "Served as System Analyst and Back-End contributor for an Android application helping victims of violence find appropriate support services. Architected the Firestore database schema and integrated a real-time AI chat assistant powered by Groq API (Llama 3.3 70B) with response times under 2 seconds — matching victims to legal, psychological, and medical services.",
     img: "/RumahAman.png",
     iconLists: ["/kotlin.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/PAPB-Rumah-Aman",
@@ -119,7 +117,7 @@ export const projects = [
   {
     id: 6,
     title: "Trajectoria",
-    des: "Served as System Analyst for a cross-platform mobile application built with Flutter, designed to help young people discover and develop their potential through digital competitions, interactive learning modules, and AI-powered automated insights. Responsible for defining system architecture, user flow diagrams, and feature specifications across Android and iOS platforms.",
+    des: "Served as System Analyst for a cross-platform mobile application built with Flutter. Defined the full system architecture — ERD, use case diagrams, data flow, and API contracts — for a youth talent development platform covering digital competitions, interactive learning modules, and AI-powered automated insights across Android and iOS.",
     img: "/Trajectory.png",
     iconLists: ["/flutter.svg", "/dart.svg", "/html.svg"],
     githubLink: "https://github.com/damhacker04/trajectoria",
@@ -128,23 +126,22 @@ export const projects = [
   {
     id: 7,
     title: "SolarQuiz",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
+    des: "Built an interactive 3D simulation of the solar system using Three.js, featuring real-time planetary orbits and an embedded quiz to test users' knowledge of astronomy. Implemented realistic planet scaling, orbital mechanics, and smooth camera controls for an immersive educational experience.",
     img: "/solar3d_web.png",
     iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/project-akhir-komputer-grafis",
     liveUrl: "https://project-akhir-komputer-grafis.vercel.app/",
   },
-
 ];
 
 export const workExperience = [
   {
     id: 1,
-    title: "Full-Stack Engineer & System Analyst | Maxy Academy - Back End Bootcamp",
+    title: "Back-End Engineering Trainee · Maxy Academy Bootcamp",
     desc: "",
     descList: [
-      "Completed 2 intensive hackathons, delivering AI Trip Planner (Full-Stack) and TDR Seamless Transaction (System Analyst) under tight time constraints.",
-      "Applied end-to-end development and system architecture skills across both frontend and backend layers.",
+      "Delivered 2 production-grade systems across 2 high-pressure hackathons — both shipped within 48-hour sprint windows: AI Trip Planner (Full-Stack, Laravel + Livewire + Gemini API) and TDR Seamless Transaction (System Analyst, Laravel 12 + Midtrans + Redis + Docker).",
+      "Practiced agile sprint rituals, code review processes, and technical documentation standards throughout structured bootcamp curriculum.",
     ],
     className: "md:col-span-2",
     thumbnail: "/m-logo.png",
@@ -154,11 +151,11 @@ export const workExperience = [
   },
   {
     id: 2,
-    title: "Head of Website Development & Information Systems | UKM Seni Religi - Brawijaya University",
+    title: "Head of Website Development & Information Systems · UKM Seni Religi Brawijaya University",
     desc: "",
     descList: [
-      "Led full-cycle development of the organization's web platform for 100+ active members, covering VPS setup and object storage infrastructure.",
-      "Architected the core database schema as Lead Back-End Developer, coordinating a cross-functional team of 3 (frontend dev, UI/UX designer).",
+      "Leading system design and team coordination for the organization's official web platform (in active development) — architected Supabase (PostgreSQL) database schema for 100+ active members, and provisioned VPS + Nginx infrastructure.",
+      "Coordinating a 3-person cross-functional team (frontend developer + UI/UX designer) through full sprint cycles: requirements → DB design → API → staging deployment.",
     ],
     className: "md:col-span-2",
     thumbnail: "/logo_sr.png",
@@ -168,11 +165,11 @@ export const workExperience = [
   },
   {
     id: 3,
-    title: "IT Development at PT. Saritama Dharma Buana",
+    title: "Full-Stack Developer (Freelance) · PT. Saritama Dharma Buana",
     desc: "",
     descList: [
-      "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories: Pest, Rodent & Termite Control.",
-      "Implemented mobile-first responsive design with SEO optimization, WhatsApp CTA, FAQ accordion, project gallery, and a dedicated 5-year warranty section.",
+      "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories (Pest, Rodent & Termite Control) — replacing zero digital presence with a fully production-ready platform in under 4 weeks.",
+      "Implemented SEO-optimized architecture, WhatsApp CTA conversion flow, FAQ accordion, and project gallery — enabling direct digital client acquisition from day one.",
     ],
     className: "md:col-span-2",
     thumbnail: "/saritama_logo_experience.png",
@@ -180,16 +177,34 @@ export const workExperience = [
     startYear: 2025,
     endMonth: "Present",
   },
-
   {
     id: 4,
-    title: "Participant of Software Engineering Event by Telkom University Purwokerto",
-    desc: "Building Trajectoria a mobile app that combines digital competitions, interactive learning, and automated insights to help young people discover and grow their potential.",
+    title: "System Analyst · Software Engineering Event 9.0 by Telkom University Purwokerto",
+    desc: "",
+    descList: [
+      "Acted as System Analyst for Trajectoria in SEVENT 9.0, a national-level software engineering competition — defined ERD, use case diagrams, data flow diagrams, and API contracts for a cross-platform Flutter app before a single line of code was written.",
+      "Delivered complete technical documentation under competition time constraints, demonstrating structured analytical thinking and the ability to translate business requirements into engineering-ready specs.",
+    ],
     className: "md:col-span-2",
     thumbnail: "/logo_telkom_purwokerto.png",
-    startMonth: "Nov",
+    startMonth: "Oct",
     startYear: 2025,
     endMonth: "Dec",
+    endYear: 2025,
+  },
+  {
+    id: 5,
+    title: "Product Management Member · Google Developer Groups on Campus Brawijaya University",
+    desc: "",
+    descList: [
+      "Authored a full Product Requirements Document (PRD) as capstone project, covering complete system workflows, user story mapping, feature specifications, and acceptance criteria — bridging the gap between business needs and technical implementation.",
+      "Developed cross-functional communication skills across engineering, design, and business tracks — critical for distributed remote teams.",
+    ],
+    className: "md:col-span-2",
+    thumbnail: "/gdg_logo.webp",
+    startMonth: "Oct",
+    startYear: 2024,
+    endMonth: "Feb",
     endYear: 2025,
   },
 ];
@@ -202,7 +217,7 @@ export const socialMedia = [
   },
   {
     id: 2,
-    img: "/twit.svg",
+    img: "/insta.svg",
     link: "https://instagram.com/damdam_rafano",
   },
   {
