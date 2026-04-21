@@ -20,7 +20,7 @@ import {
 import { gridItems, projects, socialMedia, workExperience } from "@/data";
 
 /* ─── constants ─── */
-const CV_PATH = "/my_cv_updated.pdf";
+const CV_PATH = "/Kaesar_Adam_Rafano_CV_Updated.pdf";
 const CONTACT_EMAIL = "adamemier16@gmail.com";
 const LOCATION = "Jakarta, Indonesia";
 
