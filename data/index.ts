@@ -72,7 +72,7 @@ export const projects = [
   {
     id: 1,
     title: "Tripaw – AI Trip Planner",
-    des: "Laravel 13 + Livewire 4 AI travel platform — Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
+    des: "Laravel 13 + Livewire 4 AI travel platform - Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
     img: "/landing-page-tripaw.png",
     iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
     githubLink: "https://github.com/damhacker04/travel-itinerery-ai",
@@ -81,7 +81,7 @@ export const projects = [
   {
     id: 2,
     title: "TDR Seamless Transaction",
-    des: "Laravel 12 e-commerce platform with affiliate system — 18 tables, 55+ routes, Midtrans + Telegram Bot webhooks, multi-role affiliate commission engine, Filament 3 admin, and 9-container Docker stack with Prometheus + Grafana monitoring. CI/CD via GitHub Actions.",
+    des: "Laravel 12 e-commerce platform with affiliate system - 18 tables, 55+ routes, Midtrans + Telegram Bot webhooks, multi-role affiliate commission engine, Filament 3 admin, and 9-container Docker stack with Prometheus + Grafana monitoring. CI/CD via GitHub Actions.",
     img: "/landing-page-tdr.png",
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
     githubLink: "https://github.com/SutaSS/TDR-Seamless-Transaction",
@@ -126,7 +126,7 @@ export const projects = [
   {
     id: 7,
     title: "SolarQuiz",
-    des: "Single-file 3D solar system game — Three.js v0.160.0 + vanilla JS, 667 lines, zero dependencies. 8 textured planets with real-time orbital mechanics, 3000-particle star field, raycasting hover, 40-question quiz engine (5 per planet, shuffled answers), and 3 scene control sliders. Deployed on Vercel.",
+    des: "Single-file 3D solar system game - Three.js v0.160.0 + vanilla JS, 667 lines, zero dependencies. 8 textured planets with real-time orbital mechanics, 3000-particle star field, raycasting hover, 40-question quiz engine (5 per planet, shuffled answers), and 3 scene control sliders. Deployed on Vercel.",
     img: "/solar3d_web.png",
     iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/project-akhir-komputer-grafis",
@@ -140,7 +140,7 @@ export const workExperience = [
     title: "Back-End Engineering Trainee · Maxy Academy Bootcamp",
     desc: "",
     descList: [
-      "Delivered Tripaw (Laravel 13 + Livewire 4 + multi-provider AI cascade: Claude Sonnet → Gemini 2.5-flash → Groq, 45s latency budget) and TDR Seamless Transaction (Laravel 12 + Midtrans + Telegram Bot + Docker) as sole Full-Stack developer and System Analyst respectively — both within 48-hour sprint windows.",
+      "Delivered Tripaw (Laravel 13 + Livewire 4 + multi-provider AI cascade: Claude Sonnet → Gemini 2.5-flash → Groq, 45s latency budget) and TDR Seamless Transaction (Laravel 12 + Midtrans + Telegram Bot + Docker) as sole Full-Stack developer and System Analyst respectively - both within 48-hour sprint windows.",
       "Applied production-grade patterns: AI fallback with auto-failover, Filament 5 admin + AppEvent observability, 9-container Docker stack with Prometheus + Grafana monitoring, and GitHub Actions CI/CD matrix (PHP 8.3–8.5).",
     ],
     className: "md:col-span-2",
