@@ -81,7 +81,7 @@ export const projects = [
   {
     id: 2,
     title: "TDR Seamless Transaction",
-    des: "A full-featured Laravel 12 e-commerce platform with Midtrans Snap payment gateway, Telegram Bot API for real-time order notifications, Redis job queues for async processing, and Docker + Nginx containerization for production deployment. Documented 20+ REST API endpoints via Postman.",
+    des: "Laravel 12 e-commerce platform with affiliate system — 18 tables, 55+ routes, Midtrans + Telegram Bot webhooks, multi-role affiliate commission engine, Filament 3 admin, and 9-container Docker stack with Prometheus + Grafana monitoring. CI/CD via GitHub Actions.",
     img: "/landing-page-tdr.png",
     iconLists: ["/laravel.svg", "/php.svg", "/tail.svg", "/javascript.svg"],
     githubLink: "https://github.com/SutaSS/TDR-Seamless-Transaction",
@@ -90,7 +90,7 @@ export const projects = [
   {
     id: 3,
     title: "Company Profile Web PT. Saritama Dharma Buana",
-    des: "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories: Pest, Rodent & Termite Control - replacing zero online presence with a fully production-ready platform in under 4 weeks. Implemented SEO optimization, WhatsApp CTA, FAQ accordion, and project gallery.",
+    des: "Next.js 15 App Router marketing site for a Jakarta pest control company. 8 fully responsive pages, 3 service verticals, 52 shadcn/ui components, 6 documented portfolio projects, service coverage across 8 cities. Contact form with file upload, 5-year warranty terms, and WhatsApp deep-link CTA.",
     img: "/saritama_web.png",
     iconLists: ["/next.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/saritama",
@@ -99,7 +99,7 @@ export const projects = [
   {
     id: 4,
     title: "Klinik Sehat Selalu",
-    des: "Served as System Analyst for a full-featured clinic management platform. Architected the relational database schema for patient records, designed appointment scheduling workflows, and defined system requirements for the UI and backend integration. Built with Next.js and TypeScript with a focus on streamlining daily clinic operations.",
+    des: "Next.js 16 + Supabase clinic management system. 6 role dashboards (patient, doctor, pharmacist, nurse, cashier, admin), 42 pages, 38 API routes, 21-table PostgreSQL schema, real-time queue with 30s polling, pharmacy inventory management, and printable billing receipts.",
     img: "/klinik_web.png",
     iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
     githubLink: "https://github.com/damhacker04/klinik-sehat-selalu",
@@ -108,7 +108,7 @@ export const projects = [
   {
     id: 5,
     title: "RumahAman",
-    des: "Served as System Analyst and Back-End contributor for an Android application helping victims of violence find appropriate support services. Architected the Firestore database schema and integrated a real-time AI chat assistant powered by Groq API (Llama 3.3 70B) with response times under 2 seconds - matching victims to legal, psychological, and medical services.",
+    des: "Kotlin + Jetpack Compose Android app (Clean Architecture MVVM). 16 screens, Groq API AI counselor (Llama 3.3 70B), recommendation engine for 3 service types across 4 violence categories, 8 Hilt-injected repositories, Firebase FCM via Cloud Functions (Node.js 22).",
     img: "/RumahAman.png",
     iconLists: ["/kotlin.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/PAPB-Rumah-Aman",
@@ -117,7 +117,7 @@ export const projects = [
   {
     id: 6,
     title: "Trajectoria",
-    des: "Served as System Analyst for a cross-platform mobile application built with Flutter. Defined the full system architecture - ERD, use case diagrams, data flow, and API contracts - for a youth talent development platform covering digital competitions, interactive learning modules, and AI-powered automated insights across Android and iOS.",
+    des: "Flutter + Firebase cross-platform app (6 platforms, 276 Dart files). 35 screens, 2 user roles, Google Gemini 2.5 Flash AI submission review via Cloud Functions, 62 use cases, 46 BLoCs, 5-level learning hierarchy across 13 Firestore collections. Strict Clean Architecture with Dartz Either.",
     img: "/Trajectory.png",
     iconLists: ["/flutter.svg", "/dart.svg", "/html.svg"],
     githubLink: "https://github.com/damhacker04/trajectoria",
@@ -126,11 +126,20 @@ export const projects = [
   {
     id: 7,
     title: "SolarQuiz",
-    des: "Built an interactive 3D simulation of the solar system using Three.js, featuring real-time planetary orbits and an embedded quiz to test users' knowledge of astronomy. Implemented realistic planet scaling, orbital mechanics, and smooth camera controls for an immersive educational experience.",
+    des: "Single-file 3D solar system game — Three.js v0.160.0 + vanilla JS, 667 lines, zero dependencies. 8 textured planets with real-time orbital mechanics, 3000-particle star field, raycasting hover, 40-question quiz engine (5 per planet, shuffled answers), and 3 scene control sliders. Deployed on Vercel.",
     img: "/solar3d_web.png",
     iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/project-akhir-komputer-grafis",
     liveUrl: "https://project-akhir-komputer-grafis.vercel.app/",
+  },
+  {
+    id: 8,
+    title: "Tripaw – AI Trip Planner",
+    des: "Laravel 13 + Livewire 4 travel platform with multi-provider AI fallback cascade (Claude → Gemini → Groq), Midtrans payment, Filament 5 admin panel with observability monitoring, and GitHub Actions CI/CD. 9 core tables, 20 Livewire components.",
+    img: "/landing-page-tripaw.png",
+    iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
+    githubLink: "https://github.com/damhacker04",
+    liveUrl: "https://tripaw.ghufronbagas.dev/",
   },
 ];
 
