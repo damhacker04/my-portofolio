@@ -135,7 +135,7 @@ export const projects = [
   {
     id: 8,
     title: "Tripaw – AI Trip Planner",
-    des: "Laravel 13 + Livewire 4 travel platform with multi-provider AI fallback cascade (Claude → Gemini → Groq), Midtrans payment, Filament 5 admin panel with observability monitoring, and GitHub Actions CI/CD. 9 core tables, 20 Livewire components.",
+    des: "Laravel 13 + Livewire 4 AI travel platform — Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
     img: "/landing-page-tripaw.png",
     iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
     githubLink: "https://github.com/damhacker04",
@@ -149,8 +149,8 @@ export const workExperience = [
     title: "Back-End Engineering Trainee · Maxy Academy Bootcamp",
     desc: "",
     descList: [
-      "Delivered 2 production-grade systems across 2 high-pressure hackathons - both shipped within 48-hour sprint windows, AI Trip Planner (Full-Stack, Laravel + Livewire + Gemini API) and TDR Seamless Transaction (System Analyst, Laravel 12 + Midtrans + Redis + Docker).",
-      "Practiced agile sprint rituals, code review processes, and technical documentation standards throughout structured bootcamp curriculum.",
+      "Delivered Tripaw (Laravel 13 + Livewire 4 + multi-provider AI cascade: Claude Sonnet → Gemini 2.5-flash → Groq, 45s latency budget) and TDR Seamless Transaction (Laravel 12 + Midtrans + Telegram Bot + Docker) as sole Full-Stack developer and System Analyst respectively — both within 48-hour sprint windows.",
+      "Applied production-grade patterns: AI fallback with auto-failover, Filament 5 admin + AppEvent observability, 9-container Docker stack with Prometheus + Grafana monitoring, and GitHub Actions CI/CD matrix (PHP 8.3–8.5).",
     ],
     className: "md:col-span-2",
     thumbnail: "/m-logo.png",
