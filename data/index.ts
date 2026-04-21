@@ -71,7 +71,7 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Tripaw – AI Trip Planner",
+    title: "Tripaw - AI Trip Planner",
     des: "Laravel 13 + Livewire 4 AI travel platform - Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
     img: "/landing-page-tripaw.png",
     iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
