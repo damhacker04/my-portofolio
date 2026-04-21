@@ -10,7 +10,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 
 const Hero = () => {
-  const roles = ["Full Stack Web Engineer", "System Analyst"];
+  const roles = ["PHP & JavaScript Developer", "Backend Architecture & System Design"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);

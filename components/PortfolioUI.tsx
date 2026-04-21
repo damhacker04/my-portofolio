@@ -426,7 +426,7 @@ export default function PortfolioUI() {
                     <span className="inline-block origin-[70%_70%] animate-[wave_2.5s_ease-in-out_infinite]">👋</span>
                   </h1>
                   <p className="reveal stagger-1 text-base leading-7">
-                    I'm a Full Stack Engineer and System Analyst focused on designing scalable architectures and building fast, reliable digital products with clean user interfaces.
+                    PHP &amp; JavaScript Developer specializing in Backend Architecture &amp; System Design — building production-grade web systems with Laravel, Next.js, and REST APIs. Open to remote &amp; international roles.
                   </p>
                 </div>
 
@@ -493,9 +493,9 @@ export default function PortfolioUI() {
                   Curious about me? Here you have it:
                 </h3>
                 <p className="reveal-right stagger-1 text-base leading-7">
-                  As a Full Stack Engineer and System Analyst, I enjoy designing scalable architectures and building digital solutions from the ground up.
-                  I have a strong focus on user experience, readable code, and maintainable systems.
-                  I believe that a great product is built on clear communication and seamless collaboration with teams and clients.
+                  As a PHP &amp; JavaScript Developer specializing in backend architecture and system design, I build fast, reliable web systems from the ground up — from database schema to deployed API to polished frontend.
+                  I have a strong focus on clean code, maintainable systems, and production-ready solutions that scale.
+                  I believe great products are built on clear technical decisions and seamless collaboration across engineering, design, and product.
                 </p>
                 <p className="reveal-right stagger-4 text-base leading-7">Finally, some quick bits about me.</p>
 

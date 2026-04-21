@@ -10,22 +10,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Kaesar Adam Rafano — Full-Stack Engineer",
+  title: "Kaesar Adam Rafano — PHP & JavaScript Developer",
   description:
-    "Full-Stack Engineer specializing in backend architecture, REST API design, and AI-integrated systems. Open to remote freelance and international internship opportunities.",
+    "PHP & JavaScript Developer specializing in Backend Architecture & System Design. Building production-grade web systems with Laravel, Next.js, and REST APIs. Open to remote & international roles.",
   openGraph: {
-    title: "Kaesar Adam Rafano — Full-Stack Engineer",
+    title: "Kaesar Adam Rafano — PHP & JavaScript Developer",
     description:
-      "Full-Stack Engineer specializing in backend architecture and scalable web systems.",
+      "PHP & JavaScript Developer specializing in backend architecture and scalable web systems.",
     url: "https://adamrafano.vercel.app",
     siteName: "Kaesar Adam Rafano Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kaesar Adam Rafano — Full-Stack Engineer",
+    title: "Kaesar Adam Rafano — PHP & JavaScript Developer",
     description:
-      "Full-Stack Engineer specializing in backend architecture and scalable web systems.",
+      "PHP & JavaScript Developer specializing in backend architecture and scalable web systems.",
   },
 };
 
