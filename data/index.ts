@@ -71,8 +71,8 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "Tripaw - AI Trip Planner",
-    des: "An AI-powered travel planning application built entirely within the Laravel ecosystem - Livewire for reactive frontend UI, REST API backend, and Google Gemini API (gemini-2.5-flash) for real-time personalized itinerary generation. Built and delivered end-to-end within a 48-hour hackathon sprint.",
+    title: "Tripaw – AI Trip Planner",
+    des: "Laravel 13 + Livewire 4 AI travel platform — Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
     img: "/landing-page-tripaw.png",
     iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
     githubLink: "https://github.com/damhacker04/travel-itinerery-ai",
@@ -131,15 +131,6 @@ export const projects = [
     iconLists: ["/html.svg", "/css.svg", "/three.svg", "/javascript.svg"],
     githubLink: "https://github.com/damhacker04/project-akhir-komputer-grafis",
     liveUrl: "https://project-akhir-komputer-grafis.vercel.app/",
-  },
-  {
-    id: 8,
-    title: "Tripaw – AI Trip Planner",
-    des: "Laravel 13 + Livewire 4 AI travel platform — Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
-    img: "/landing-page-tripaw.png",
-    iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
-    githubLink: "https://github.com/damhacker04",
-    liveUrl: "https://tripaw.ghufronbagas.dev/",
   },
 ];
 
