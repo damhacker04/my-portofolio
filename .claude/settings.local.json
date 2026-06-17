@@ -3,7 +3,18 @@
     "allow": [
       "Bash(npx tsc:*)",
       "Bash(npx next:*)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "WebFetch(domain:breedlove.xyz)",
+      "Bash(dir \"C:\\\\Projek Saya\\\\my-portofolio\" /b)",
+      "Bash(dir \"C:\\\\Projek Saya\\\\my-portofolio\\\\data\" /b)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "PowerShell(Start-Process \"msedge.exe\" -ArgumentList \"http://localhost:3000\")",
+      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\Adam R\\\\Downloads\\\\James Breedlove, Software Engineer.html\" | Measure-Object -Line\\).Lines)",
+      "Bash(Stop-Process -Id 38332 -Force -ErrorAction SilentlyContinue)",
+      "Bash(Start-Sleep -Seconds 2)",
+      "Bash(Write-Host \"Done\")"
     ]
   }
 }

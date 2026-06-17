@@ -34,22 +34,24 @@
 
     --radius: 0.5rem;
 
-    --pf-gray-default: 255 255 255;
-    --pf-gray-50: 249 250 251;
-    --pf-gray-100: 243 244 246;
-    --pf-gray-200: 229 231 235;
-    --pf-gray-300: 209 213 219;
-    --pf-gray-400: 156 163 175;
-    --pf-gray-500: 107 114 128;
-    --pf-gray-600: 75 85 99;
-    --pf-gray-700: 55 65 81;
-    --pf-gray-800: 31 41 55;
-    --pf-gray-900: 17 24 39;
-    --pf-gray-950: 3 7 18;
+    --pf-gray-default: 245 241 232;
+    --pf-gray-50: 237 232 218;
+    --pf-gray-100: 220 213 198;
+    --pf-gray-200: 196 187 170;
+    --pf-gray-300: 163 153 135;
+    --pf-gray-400: 128 119 103;
+    --pf-gray-500: 95 87 73;
+    --pf-gray-600: 65 59 48;
+    --pf-gray-700: 42 38 30;
+    --pf-gray-800: 26 23 17;
+    --pf-gray-900: 15 13 9;
+    --pf-gray-950: 5 4 2;
 
     --pf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
     --pf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     --pf-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    --pf-accent: 214 120 75;
   }
 
   .dark {
@@ -97,6 +99,8 @@
     --pf-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
     --pf-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.35), 0 4px 6px -4px rgba(0, 0, 0, 0.35);
     --pf-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+
+    --pf-accent: 240 155 105;
   }
 }
 
@@ -298,11 +302,23 @@
 
 .skill-icon-glow:hover {
   transform: scale(1.15);
-  filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.3));
+  filter: drop-shadow(0 0 8px rgba(214, 120, 75, 0.35));
 }
 
 .dark .skill-icon-glow:hover {
-  filter: drop-shadow(0 0 10px rgba(165, 180, 252, 0.4));
+  filter: drop-shadow(0 0 10px rgba(240, 155, 105, 0.45));
+}
+
+/* Drop-cap first paragraph */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 0.82;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  color: rgb(var(--pf-gray-900) / 1);
 }
 
 /* Profile photo gradient ring */
@@ -340,4 +356,52 @@
 
 .dark .nav-scrolled {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Font utilities ── */
+.font-archivo {
+  font-family: var(--font-archivo), sans-serif;
+}
+
+.font-newsreader {
+  font-family: var(--font-newsreader), Georgia, serif;
+}
+
+/* ── Horizontal ticker (infinite scroll) ── */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 45s linear infinite;
+}
+
+
+/* ── Hero overlay gradient ── */
+.hero-gradient {
+  background: linear-gradient(
+    105deg,
+    rgba(10, 9, 7, 0.96) 0%,
+    rgba(10, 9, 7, 0.88) 40%,
+    rgba(10, 9, 7, 0.55) 68%,
+    rgba(10, 9, 7, 0.15) 100%
+  );
+}
+
+/* ── Plate card hover lift ── */
+.plate-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.plate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.2);
+}
+
+.dark .plate-card:hover {
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.5);
 }

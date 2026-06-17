@@ -1,12 +1,27 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Archivo, Newsreader, Inter } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  weight: ["600", "700", "900"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${archivo.variable} ${newsreader.variable} ${inter.variable} antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider
