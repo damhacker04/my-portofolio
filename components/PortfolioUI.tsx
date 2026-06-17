@@ -66,7 +66,7 @@ const TOOLKIT = [
   { label: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"] },
   { label: "Mobile", skills: ["Flutter", "Dart", "Kotlin", "Jetpack Compose"] },
   { label: "Database & Cloud", skills: ["PostgreSQL", "Supabase", "Firebase", "Firestore"] },
-  { label: "DevOps & Monitoring", skills: ["Docker", "GitHub Actions", "Prometheus", "Grafana", "Nginx"] },
+  { label: "DevOps & Monitoring", skills: ["Docker"] },
   { label: "AI & Integrations", skills: ["Claude Sonnet", "Gemini 2.5 Flash", "Groq API", "Midtrans", "Three.js"] },
 ];
 
@@ -432,9 +432,9 @@ export default function PortfolioUI() {
               {/* Description + CTA */}
               <div className="flex max-w-2xl flex-col gap-6">
                 <p className="font-newsreader text-lg leading-8 text-white/75 md:text-xl">
-                  I build production Laravel and Next.js systems, integrate AI APIs into real
-                  products, and ship web applications that solve actual problems — from backend
-                  architecture to polished frontend. Open to remote &amp; international roles.
+                  I build polished React and Next.js interfaces that feel right and go full-stack
+                  when the product needs it. I&apos;ve shipped AI-integrated systems in production,
+                  from pixel-perfect layouts to the APIs behind them. Open to remote &amp; international roles.
                 </p>
                 <div className="flex items-center gap-4">
                   <a href="#contact"
@@ -528,20 +528,19 @@ export default function PortfolioUI() {
 
                 {/* Drop-cap paragraph */}
                 <p className="reveal stagger-1 drop-cap font-newsreader text-lg leading-8 text-[rgb(var(--pf-gray-600)/1)] md:text-xl">
-                  I&apos;m Kaesar — a front-end-focused developer based in Jakarta who cares
+                  I&apos;m Kaesar, a front-end-focused developer based in Jakarta who cares
                   deeply about building interfaces that feel right. I work primarily with React
-                  and Next.js, but I&apos;m never afraid to go deeper into the stack when the
-                  product demands it.
+                  and Next.js, though I&apos;m never afraid to go deeper into the stack when
+                  the product demands it.
                 </p>
                 <p className="reveal stagger-2 font-newsreader text-lg leading-8 text-[rgb(var(--pf-gray-600)/1)] md:text-xl">
-                  I&apos;ve already integrated Claude Sonnet, Gemini 2.5 Flash, and Groq API
-                  in shipped products — not just experiments. Whether it&apos;s architecting an
-                  AI fallback cascade or polishing a Tailwind layout pixel by pixel, I bring
-                  the same attention to both ends.
+                  I&apos;ve shipped Claude Sonnet, Gemini 2.5 Flash, and Groq API in real
+                  products, not side projects. Architecting an AI fallback cascade or polishing
+                  a Tailwind layout pixel by pixel gets the same level of attention from me.
                 </p>
                 <p className="reveal stagger-3 font-newsreader text-lg leading-8 text-[rgb(var(--pf-gray-600)/1)] md:text-xl">
-                  I do my best work when a team needs someone to own the messy middle: design
-                  the component, wire the API, push through the deployment, and still notice
+                  I do my best work when a team needs someone to own the messy middle. Design
+                  the component, wire the API, push through the deployment, and still catch
                   the 4px spacing that doesn&apos;t feel right.
                 </p>
 

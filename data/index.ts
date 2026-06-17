@@ -140,8 +140,8 @@ export const workExperience = [
     title: "Back-End Engineering Trainee · Maxy Academy Bootcamp",
     desc: "",
     descList: [
-      "Delivered Tripaw (Laravel 13 + Livewire 4 + multi-provider AI cascade: Claude Sonnet → Gemini 2.5-flash → Groq, 45s latency budget) and TDR Seamless Transaction (Laravel 12 + Midtrans + Telegram Bot + Docker) as sole Full-Stack developer and System Analyst respectively - both within 48-hour sprint windows.",
-      "Applied production-grade patterns: AI fallback with auto-failover, Filament 5 admin + AppEvent observability, 9-container Docker stack with Prometheus + Grafana monitoring, and GitHub Actions CI/CD matrix (PHP 8.3–8.5).",
+      "Delivered Tripaw (Laravel 13, Livewire 4, multi-provider AI cascade through Claude Sonnet, Gemini 2.5 Flash, and Groq within a 45s latency budget) and TDR Seamless Transaction (Laravel 12, Midtrans, Telegram Bot, Docker) as sole Full-Stack developer and System Analyst respectively, both within 48-hour sprint windows.",
+      "Applied production-grade patterns across both projects. AI fallback with auto-failover, Filament 5 admin with AppEvent observability, a 9-container Docker stack with Prometheus and Grafana monitoring, and a GitHub Actions CI/CD matrix covering PHP 8.3 through 8.5.",
     ],
     className: "md:col-span-2",
     thumbnail: "/m-logo.png",
@@ -154,8 +154,8 @@ export const workExperience = [
     title: "Head of Website Development & Information Systems · UKM Seni Religi Brawijaya University",
     desc: "",
     descList: [
-      "Leading system design and team coordination for the organization's official web platform (in active development) - architected Supabase (PostgreSQL) database schema for 100+ active members, and provisioned VPS + Nginx infrastructure.",
-      "Coordinating a 3-person cross-functional team (frontend developer + UI/UX designer) through full sprint cycles: requirements → DB design → API → staging deployment.",
+      "Leading system design and team coordination for the organization's official web platform, currently in active development. Architected a Supabase database schema on PostgreSQL for over 100 active members and provisioned VPS with Nginx infrastructure.",
+      "Coordinating a 3-person cross-functional team of a frontend developer and UI/UX designer through full sprint cycles, from requirements and DB design through API development to staging deployment.",
     ],
     className: "md:col-span-2",
     thumbnail: "/logo_sr.png",
@@ -168,8 +168,8 @@ export const workExperience = [
     title: "Full-Stack Developer (Freelance) · PT. Saritama Dharma Buana",
     desc: "",
     descList: [
-      "Built and deployed a 7-page company profile website (saritama.vercel.app) as sole developer, covering 3 service categories (Pest, Rodent & Termite Control) - replacing zero digital presence with a fully production-ready platform in under 4 weeks.",
-      "Implemented SEO-optimized architecture, WhatsApp CTA conversion flow, FAQ accordion, and project gallery - enabling direct digital client acquisition from day one.",
+      "Built and deployed a 7-page company profile website as sole developer, covering 3 service categories for a Jakarta pest control company. Took the client from zero digital presence to a fully production-ready platform in under 4 weeks.",
+      "Implemented SEO-optimized architecture, WhatsApp CTA conversion flow, FAQ accordion, and project gallery, enabling direct digital client acquisition from day one.",
     ],
     className: "md:col-span-2",
     thumbnail: "/saritama_logo_experience.png",
@@ -182,7 +182,7 @@ export const workExperience = [
     title: "System Analyst · Software Engineering Event 9.0 by Telkom University Purwokerto",
     desc: "",
     descList: [
-      "Acted as System Analyst for Trajectoria in SEVENT 9.0, a national-level software engineering competition - defined ERD, use case diagrams, data flow diagrams, and API contracts for a cross-platform Flutter app before a single line of code was written.",
+      "Acted as System Analyst for Trajectoria in SEVENT 9.0, a national-level software engineering competition. Defined ERD, use case diagrams, data flow diagrams, and API contracts for a cross-platform Flutter app before a single line of code was written.",
       "Delivered complete technical documentation under competition time constraints, demonstrating structured analytical thinking and the ability to translate business requirements into engineering-ready specs.",
     ],
     className: "md:col-span-2",
