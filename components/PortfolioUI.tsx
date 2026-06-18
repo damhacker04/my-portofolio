@@ -48,8 +48,8 @@ const HERO_STATUS = [
   },
   {
     category: "STUDYING",
-    title: "System Design",
-    desc: "Production-grade architecture patterns",
+    title: "Front-End Engineering",
+    desc: "React patterns, UI craft, and web performance",
   },
 ];
 
@@ -57,8 +57,8 @@ const TICKER_SKILLS = [
   "PHP", "Laravel", "Livewire", "JavaScript", "TypeScript", "React",
   "Next.js", "Node.js", "REST APIs", "Flutter", "Kotlin", "Dart",
   "Supabase", "PostgreSQL", "Firebase", "Docker", "GitHub Actions",
-  "Prometheus", "Grafana", "Claude Sonnet", "Gemini", "Groq API",
-  "Midtrans", "Three.js", "HTML", "CSS", "Tailwind CSS", "Git",
+  "Claude Sonnet", "Gemini", "Groq API", "Midtrans", "Three.js",
+  "HTML", "CSS", "Tailwind CSS", "Git",
 ];
 
 const TOOLKIT = [
