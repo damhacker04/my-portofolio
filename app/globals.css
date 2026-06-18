@@ -391,6 +391,18 @@
   );
 }
 
+@media (max-width: 767px) {
+  .hero-gradient {
+    background: linear-gradient(
+      to right,
+      rgba(10, 9, 7, 0.92) 0%,
+      rgba(10, 9, 7, 0.75) 40%,
+      rgba(10, 9, 7, 0.18) 68%,
+      rgba(10, 9, 7, 0.00) 100%
+    );
+  }
+}
+
 /* ── Plate card hover lift ── */
 .plate-card {
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),

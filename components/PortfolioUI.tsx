@@ -392,7 +392,7 @@ export default function PortfolioUI() {
               src="/Foto_Background3.jpeg"
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover object-[65%_center]"
+              className="h-full w-full object-cover object-[55%_center] md:object-[65%_center]"
             />
             <div className="hero-gradient absolute inset-0" />
             <div className="absolute inset-0 bg-[rgb(10,9,7)]/30" />
