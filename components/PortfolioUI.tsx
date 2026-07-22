@@ -25,8 +25,8 @@ const CONTACT_EMAIL = "adamemier16@gmail.com";
 const LOCATION = "Jakarta, Indonesia";
 
 const HERO_STATS = [
-  { value: 7, suffix: "", label: "Projects shipped" },
-  { value: 3, suffix: "", label: "AI APIs in production" },
+  { value: 9, suffix: "", label: "Projects shipped" },
+  { value: 3, suffix: "", label: "APIs in production" },
   { value: 5, suffix: "+", label: "Work experiences" },
 ];
 
