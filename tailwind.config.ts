@@ -27,6 +27,15 @@ const config = {
     },
     extend: {
       colors: {
+        /* ── Strata design system (semantic; backed by CSS vars in globals.css) ── */
+        paper: "rgb(var(--paper) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        "ink-soft": "rgb(var(--ink-soft) / <alpha-value>)",
+        "ink-faint": "rgb(var(--ink-faint) / <alpha-value>)",
+        line: "rgb(var(--line) / <alpha-value>)",
+        ember: "rgb(var(--ember) / <alpha-value>)",
+        "ember-deep": "rgb(var(--ember-deep) / <alpha-value>)",
         black: {
           DEFAULT: "#000",
           100: "#000319",
@@ -174,7 +183,6 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    addVariablesForColors,
     function ({ matchUtilities, theme }: any) {
       matchUtilities(
         {
@@ -199,16 +207,5 @@ const config = {
     },
   ],
 } satisfies Config;
-
-function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
-
-  addBase({
-    ":root": newVars,
-  });
-}
 
 export default config;

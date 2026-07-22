@@ -1,46 +1,41 @@
 import type { Metadata } from "next";
-import { Archivo, Newsreader, Inter } from "next/font/google";
+import { Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const hanken = Hanken_Grotesk({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["600", "700", "900"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Kaesar Adam Rafano — PHP & JavaScript Developer",
+  title: "Kaesar Adam Rafano — Web Developer",
   description:
-    "PHP & JavaScript Developer specializing in Backend Architecture & System Design. Building production-grade web systems with Laravel, Next.js, and REST APIs. Open to remote & international roles.",
+    "Web Developer based in Jakarta. I ship real, deployed products — web, mobile, and AI-integrated — as a student, and I'm going deep on front-end. Open to remote and international roles.",
   openGraph: {
-    title: "Kaesar Adam Rafano — PHP & JavaScript Developer",
+    title: "Kaesar Adam Rafano — Web Developer",
     description:
-      "PHP & JavaScript Developer specializing in backend architecture and scalable web systems.",
+      "Web Developer shipping real, deployed products as a student. Open to remote and international roles.",
     url: "https://adamrafano.vercel.app",
     siteName: "Kaesar Adam Rafano Portfolio",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kaesar Adam Rafano — PHP & JavaScript Developer",
+    title: "Kaesar Adam Rafano — Web Developer",
     description:
-      "PHP & JavaScript Developer specializing in backend architecture and scalable web systems.",
+      "Web Developer shipping real, deployed products as a student. Open to remote and international roles.",
   },
 };
 
@@ -52,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${archivo.variable} ${newsreader.variable} ${inter.variable} antialiased`}
+        className={`${hanken.variable} ${jetbrains.variable} antialiased`}
         suppressHydrationWarning
       >
         <ThemeProvider

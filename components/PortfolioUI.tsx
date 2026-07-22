@@ -1,11 +1,27 @@
 "use client";
 
+/*
+  DIRECTION CONTRACT — "The Strata"  (Experience · replaces the dark-photo breedlove world)
+
+  THESIS: A portfolio as a cross-section of cooled rock. It refuses the loud dark-hero-photo
+    and the big-count-up metric template; the work and the whitespace lead.
+  OWN-WORLD: Cool mineral paper (#ECEBE6) / basalt (#121110), ink text, one molten ember seam
+    used on <=5% of any viewport. Oversized Hanken Grotesk display against JetBrains Mono index
+    labels. Sections are horizontal strata banded by 1px hairlines, opened by a mono number +
+    ember tick. Flat by default; hover lifts warm.
+  STORY: A recruiter lands on calm near-white, reads an oversized name and one honest line,
+    scans real shipped work banded like rock layers, and reaches out.
+  FIRST VIEWPORT: Minimal top bar; giant "Kaesar / Adam Rafano" on paper; a seam-tick + mono
+    "WEB DEVELOPER" under it; one honest intro line; Get-in-touch action left, socials beside.
+  FORM: Editorial strata (magma.build reference, user-pinned). Top-ranked structure; no seed
+    roll (pinned world). Light + dark both authored. Primitives in components/strata/.
+*/
+
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useTheme } from "next-themes";
 import {
   FaArrowUpRightFromSquare,
   FaBars,
-  FaEnvelope,
   FaGithub,
   FaInstagram,
   FaLinkedin,
@@ -18,6 +34,7 @@ import {
 } from "react-icons/fa6";
 
 import { projects, socialMedia, workExperience } from "@/data";
+import { Strata, Label, Tag, Field, WRAP, ICON_BTN } from "@/components/strata";
 
 /* ─── constants ─── */
 const CV_PATH = "/Kaesar_Adam_Rafano_CV_Updated.pdf";
@@ -25,32 +42,16 @@ const CONTACT_EMAIL = "adamemier16@gmail.com";
 const LOCATION = "Jakarta, Indonesia";
 
 const HERO_STATS = [
-  { value: 9, suffix: "", label: "Projects shipped" },
-  { value: 3, suffix: "", label: "APIs in production" },
-  { value: 5, suffix: "+", label: "Work experiences" },
+  { value: 7, suffix: "", label: "Projects shipped" },
+  { value: 3, suffix: "", label: "AI APIs in production" },
+  { value: 5, suffix: "", label: "Roles held" },
 ];
 
 const HERO_STATUS = [
-  {
-    category: "BUILDING",
-    title: "UKM Web Platform",
-    desc: "100+ members · Supabase + PostgreSQL",
-  },
-  {
-    category: "BOOTCAMP",
-    title: "Maxy Academy",
-    desc: "Back-End Engineering Trainee",
-  },
-  {
-    category: "LAST SHIPPED",
-    title: "Tripaw",
-    desc: "Laravel 13 + Claude Sonnet AI planner",
-  },
-  {
-    category: "STUDYING",
-    title: "Front-End Engineering",
-    desc: "React patterns, UI craft, and web performance",
-  },
+  { category: "BUILDING", title: "UKM Web Platform", desc: "100+ members on Supabase and PostgreSQL" },
+  { category: "BOOTCAMP", title: "Maxy Academy", desc: "Back-End Engineering trainee" },
+  { category: "LAST SHIPPED", title: "Tripaw", desc: "Laravel 13 with a Claude Sonnet planner" },
+  { category: "GOING DEEP ON", title: "Front-End Engineering", desc: "React patterns, UI craft, web performance" },
 ];
 
 const TICKER_SKILLS = [
@@ -62,30 +63,18 @@ const TICKER_SKILLS = [
 ];
 
 const TOOLKIT = [
-  { label: "Backend", skills: ["PHP", "Laravel", "Livewire", "Node.js", "REST APIs"], stars: 4 },
-  { label: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"], stars: 5 },
-  { label: "Mobile", skills: ["Flutter", "Dart", "Kotlin", "Jetpack Compose"], stars: 3 },
-  { label: "Database & Cloud", skills: ["PostgreSQL", "Supabase", "Firebase", "Firestore"], stars: 4 },
-  { label: "DevOps & Monitoring", skills: ["Docker"], stars: 2 },
-  { label: "AI & Integrations", skills: ["Claude Sonnet", "Gemini 2.5 Flash", "Groq API", "Midtrans", "Three.js"], stars: 4 },
+  { label: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"] },
+  { label: "Backend", skills: ["PHP", "Laravel", "Livewire", "Node.js", "REST APIs"] },
+  { label: "Mobile", skills: ["Flutter", "Dart", "Kotlin", "Jetpack Compose"] },
+  { label: "Database & Cloud", skills: ["PostgreSQL", "Supabase", "Firebase", "Firestore"] },
+  { label: "DevOps", skills: ["Docker", "GitHub Actions", "Git"] },
+  { label: "AI & Integrations", skills: ["Claude Sonnet", "Gemini 2.5 Flash", "Groq API", "Midtrans", "Three.js"] },
 ];
 
 const TIMELINE = [
-  {
-    year: "2024",
-    event: "Joined GDG on Campus Brawijaya, authored first PRD, started shipping web apps",
-    current: false,
-  },
-  {
-    year: "2025",
-    event: "First paid client (Saritama), competed at SEVENT 9.0, shipped Trajectoria & RumahAman",
-    current: false,
-  },
-  {
-    year: "2026",
-    event: "Maxy Academy back-end bootcamp, deployed multi-AI cascade systems, leading 3-person dev team",
-    current: true,
-  },
+  { year: "2024", event: "Joined GDG on Campus Brawijaya, authored a first PRD, started shipping web apps", current: false },
+  { year: "2025", event: "First paid client (Saritama), competed at SEVENT 9.0, shipped Trajectoria and RumahAman", current: false },
+  { year: "2026", event: "Maxy Academy back-end bootcamp, deployed multi-AI cascade systems, leading a 3-person team", current: true },
 ];
 
 const navLinks = [
@@ -93,8 +82,8 @@ const navLinks = [
   { num: "01", label: "Background", href: "#about" },
   { num: "02", label: "Experience", href: "#experience" },
   { num: "03", label: "Projects", href: "#work" },
-  { num: "04", label: "Contact", href: "#contact" },
-  { num: "05", label: "Toolkit", href: "#toolkit" },
+  { num: "04", label: "Toolkit", href: "#toolkit" },
+  { num: "05", label: "Contact", href: "#contact" },
 ];
 
 const iconLabelMap: Record<string, string> = {
@@ -105,20 +94,16 @@ const iconLabelMap: Record<string, string> = {
   "/ts.svg": "TypeScript", "/git.svg": "Git", "/dockerName.svg": "Docker",
 };
 
-const ROMAN = ["I", "II", "III", "IV", "V", "VI"];
-
 /* ─── helpers ─── */
 const toReadableLabel = (value: string) => {
   const cleaned = value.split("/").pop()?.replace(/\.(svg|png|jpg|jpeg)$/i, "") ?? value;
-  return cleaned.replace(/[-_]/g, " ").replace(/\s+/g, " ").trim()
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return cleaned.replace(/[-_]/g, " ").replace(/\s+/g, " ").trim().replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
 const isUrl = (value: string) => /^https?:\/\//i.test(value.trim());
 
 const formatDateRange = (item: {
-  startMonth?: string; startYear?: number;
-  endMonth?: string; endYear?: number;
+  startMonth?: string; startYear?: number; endMonth?: string; endYear?: number;
 }) => {
   const start = [item.startMonth, item.startYear].filter(Boolean).join(" ");
   const isPresent = item.endMonth === "Now" || item.endMonth === "Present";
@@ -134,8 +119,8 @@ const renderSocialIcon = (id: number) => {
   return <FaLinkedin className="h-4 w-4" />;
 };
 
-/* ─── count-up hook ─── */
-function useCountUp(target: number, duration = 1200) {
+/* ─── count-up hook (compact proof figures) ─── */
+function useCountUp(target: number, duration = 1100) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
@@ -145,7 +130,7 @@ function useCountUp(target: number, duration = 1200) {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
-      { threshold: 0.3 }
+      { threshold: 0.4 }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -154,12 +139,12 @@ function useCountUp(target: number, duration = 1200) {
   useEffect(() => {
     if (!started) return;
     let startTime: number;
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+    const step = (t: number) => {
+      if (!startTime) startTime = t;
+      const p = Math.min((t - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
       setCount(Math.round(eased * target));
-      if (progress < 1) requestAnimationFrame(step);
+      if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   }, [started, target, duration]);
@@ -167,18 +152,14 @@ function useCountUp(target: number, duration = 1200) {
   return { ref, count };
 }
 
-/* ─── stat number sub-component ─── */
-function StatNumber({ value, suffix, label }: { value: number; suffix: string; label: string }) {
-  const { ref, count } = useCountUp(value, 1000);
+function CompactStat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const { ref, count } = useCountUp(value);
   return (
-    <div className="flex flex-col gap-1">
-      <span ref={ref} className="font-archivo font-black leading-none text-white"
-        style={{ fontSize: "clamp(4rem, 10vw, 8rem)" }}>
-        {count}{suffix}
+    <div className="flex flex-col gap-2">
+      <span ref={ref} className="font-sans text-5xl font-extrabold leading-none tracking-[-0.03em] text-ink md:text-6xl">
+        {String(count).padStart(2, "0")}{suffix}
       </span>
-      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50">
-        {label}
-      </span>
+      <Label className="text-[10px]">{label}</Label>
     </div>
   );
 }
@@ -186,48 +167,32 @@ function StatNumber({ value, suffix, label }: { value: number; suffix: string; l
 /* ─── scroll reveal hook ─── */
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const revealClasses = ["reveal", "reveal-left", "reveal-right", "reveal-scale"];
     const selector = revealClasses.map((c) => `.${c}`).join(",");
-
     const revealEl = (target: Element) => {
       target.classList.add("revealed");
       target.querySelectorAll(selector).forEach((c) => c.classList.add("revealed"));
     };
-
     const observer = new IntersectionObserver(
       (entries) => { for (const e of entries) if (e.isIntersecting) revealEl(e.target); },
-      { threshold: 0.05, rootMargin: "0px 0px -30px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
     );
-
     const targets = Array.from(el.querySelectorAll(selector));
     if (revealClasses.some((cls) => el.classList.contains(cls))) targets.push(el);
-
     targets.forEach((child) => {
       const rect = child.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0) revealEl(child);
       else observer.observe(child);
     });
-
     return () => observer.disconnect();
   }, []);
-
   return ref;
 }
 
-/* ─── style constants ─── */
-const iconBtnClass =
-  "group inline-flex items-center justify-center rounded-lg p-2 transition-all duration-200 hover:bg-white/10 active:bg-white/20";
-
-const iconBtnLightClass =
-  "group inline-flex items-center justify-center rounded-lg p-2 transition-all duration-200 hover:bg-[rgb(var(--pf-gray-100)/1)] active:bg-[rgb(var(--pf-gray-200)/1)]";
-
-/* ═══════════════════════════════════════════════
-   MAIN COMPONENT
-   ═══════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════ */
 export default function PortfolioUI() {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -241,13 +206,14 @@ export default function PortfolioUI() {
   const aboutRef = useReveal();
   const expRef = useReveal();
   const workRef = useReveal();
+  const toolkitRef = useReveal();
   const contactRef = useReveal();
 
   useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setScrolled(window.scrollY > 24);
       const ids = ["contact", "toolkit", "work", "experience", "about", "home"];
       for (const id of ids) {
         const el = document.getElementById(id);
@@ -264,10 +230,6 @@ export default function PortfolioUI() {
   }, [menuOpen]);
 
   const isDark = mounted && (theme === "dark" || (theme === "system" && resolvedTheme === "dark"));
-  const usesDarkNav = !mounted || activeSection === "home" || isDark;
-  const navIconBtnClass = usesDarkNav
-    ? "group inline-flex items-center justify-center rounded-lg p-2 transition-all duration-200 hover:bg-white/10 active:bg-white/20"
-    : "group inline-flex items-center justify-center rounded-lg p-2 transition-all duration-200 hover:bg-[rgb(var(--pf-gray-100)/1)] active:bg-[rgb(var(--pf-gray-200)/1)]";
   const handleThemeToggle = () => setTheme(isDark ? "light" : "dark");
 
   const handleCopy = useCallback(async (key: string, value: string) => {
@@ -292,529 +254,295 @@ export default function PortfolioUI() {
 
   /* ─── RENDER ─── */
   return (
-    <div className="min-h-screen bg-[rgb(var(--pf-gray-default)/1)] text-[rgb(var(--pf-gray-600)/1)] transition-colors duration-500 font-archivo">
+    <div className="min-h-screen bg-paper font-sans text-ink-soft transition-colors duration-500">
 
-      {/* ═══ NAVBAR (floating center-pill) ═══ */}
-      <header className="fixed top-4 z-50 w-full px-6 md:px-12">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-
-          {/* Logo */}
-          <a href="#home"
-            className={`font-mono text-xs font-bold uppercase tracking-[0.25em] drop-shadow-sm transition-all duration-300 hover:opacity-60 ${
-              usesDarkNav ? "text-white" : "text-[rgb(var(--pf-gray-800)/1)]"
-            }`}>
+      {/* ═══ TOP NAV ═══ */}
+      <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled ? "border-b border-line bg-paper/[0.86] backdrop-blur-xl" : "border-b border-transparent"
+      }`}>
+        <div className={`${WRAP} flex items-center justify-between py-4`}>
+          <a href="#home" className="font-mono text-xs font-semibold tracking-[0.2em] text-ink transition-opacity hover:opacity-60">
             KAR
           </a>
 
-          {/* Right actions */}
-          <div className="flex items-center gap-3">
-            <button onClick={handleThemeToggle} type="button" aria-label="Toggle theme" className={navIconBtnClass}>
+          <nav className="hidden items-center gap-6 md:flex">
+            {navLinks.map((item) => {
+              const active = activeSection === item.href.replace("#", "");
+              return (
+                <a key={item.href} href={item.href}
+                  className="group flex items-center gap-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] transition-colors duration-200">
+                  <span className={active ? "text-ember-deep" : "text-ink-faint"}>{item.num}</span>
+                  <span className={active ? "text-ink" : "text-ink-faint group-hover:text-ink"}>{item.label}</span>
+                </a>
+              );
+            })}
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <button onClick={handleThemeToggle} type="button" aria-label="Toggle theme" className={ICON_BTN}>
               <span key={isDark ? "sun" : "moon"} className="theme-icon-enter">
-                {isDark
-                  ? <FaSun className={`h-4 w-4 ${usesDarkNav ? "text-white/60" : "text-[rgb(var(--pf-gray-500)/1)]"}`} />
-                  : <FaMoon className={`h-4 w-4 ${usesDarkNav ? "text-white/60" : "text-[rgb(var(--pf-gray-500)/1)]"}`} />}
+                {isDark ? <FaSun className="h-4 w-4" /> : <FaMoon className="h-4 w-4" />}
               </span>
             </button>
             <a href={CV_PATH} download
-              className={`hidden rounded-full border px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-200 md:inline-flex ${
-                usesDarkNav
-                  ? "border-white/25 text-white/80 hover:border-white/60 hover:text-white"
-                  : "border-[rgb(var(--pf-gray-300)/1)] text-[rgb(var(--pf-gray-600)/1)] hover:border-[rgb(var(--pf-gray-700)/1)] hover:text-[rgb(var(--pf-gray-900)/1)]"
-              }`}>
+              className="hidden border border-line px-4 py-1.5 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink transition-colors duration-200 hover:border-ink md:inline-flex">
               Resume
             </a>
-            <button onClick={() => setMenuOpen((p) => !p)} type="button" aria-label="Toggle menu"
-              className={`${navIconBtnClass} md:hidden`}>
+            <button onClick={() => setMenuOpen((p) => !p)} type="button" aria-label="Toggle menu" className={`${ICON_BTN} md:hidden`}>
               <span key={menuOpen ? "x" : "bars"} className="theme-icon-enter">
-                {menuOpen
-                  ? <FaXmark className={`h-5 w-5 ${usesDarkNav ? "text-white/80" : "text-[rgb(var(--pf-gray-700)/1)]"}`} />
-                  : <FaBars className={`h-5 w-5 ${usesDarkNav ? "text-white/80" : "text-[rgb(var(--pf-gray-700)/1)]"}`} />}
+                {menuOpen ? <FaXmark className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
               </span>
             </button>
           </div>
         </div>
 
-        {/* Mobile menu */}
         {menuOpen && (
-          <div className="mobile-menu-enter mt-2 rounded-2xl border border-white/10 bg-[rgb(10,9,7)]/95 px-6 py-6 backdrop-blur-xl md:hidden">
+          <div className="mobile-menu-enter border-t border-line bg-paper px-6 py-6 md:hidden">
             <div className="flex flex-col gap-5">
               {navLinks.map((item) => (
                 <a key={item.href} href={item.href} onClick={closeMobileMenu}
-                  className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors hover:text-white">
-                  <span className="font-mono text-[rgb(var(--pf-accent)/0.8)]">{item.num}</span>
+                  className="flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink-soft transition-colors hover:text-ink">
+                  <span className="text-ember-deep">{item.num}</span>
                   {item.label}
                 </a>
               ))}
-              <div className="flex items-center gap-4 border-t border-white/10 pt-4">
-                <button onClick={handleThemeToggle} type="button" className={iconBtnClass}>
-                  {isDark ? <FaSun className="h-4 w-4 text-white/60" /> : <FaMoon className="h-4 w-4 text-white/60" />}
-                </button>
-                <a href={CV_PATH} download className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">
-                  Resume ↓
-                </a>
-              </div>
+              <a href={CV_PATH} download className="mt-1 border-t border-line pt-4 font-mono text-xs font-medium uppercase tracking-[0.16em] text-ink">
+                Resume ↓
+              </a>
             </div>
           </div>
         )}
       </header>
 
-      {/* ═══ DESKTOP VERTICAL LEFT NAV ═══ */}
-      {mounted && (
-        <nav className={`fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 md:flex flex-col items-center gap-0 rounded-full border py-5 px-3 backdrop-blur-xl transition-all duration-300 ${
-          isDark
-            ? "border-white/10 bg-[rgb(10,9,7)]/70"
-            : "border-[rgb(var(--pf-gray-200)/0.8)] bg-white/70 shadow-sm"
-        }`}>
-          {navLinks.map((item) => {
-            const isActive = activeSection === item.href.replace("#", "");
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                title={item.label}
-                className={`group relative flex items-center justify-center px-2 py-2.5 transition-all duration-200 ${
-                  isActive
-                    ? "text-[rgb(var(--pf-accent)/1)]"
-                    : isDark
-                      ? "text-white/25 hover:text-white/70"
-                      : "text-[rgb(var(--pf-gray-300)/1)] hover:text-[rgb(var(--pf-gray-700)/1)]"
-                }`}
-              >
-                <span className="font-mono text-[9px] font-bold leading-none">{item.num}</span>
-                <span className={`pointer-events-none absolute left-full ml-3 whitespace-nowrap rounded-full border px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.15em] opacity-0 shadow-sm backdrop-blur-sm transition-opacity duration-150 group-hover:opacity-100 ${
-                  isDark
-                    ? "border-white/10 bg-[rgb(10,9,7)]/90 text-white/60"
-                    : "border-[rgb(var(--pf-gray-200)/0.6)] bg-white/95 text-[rgb(var(--pf-gray-600)/1)]"
-                }`}>
-                  {item.label}
-                </span>
-              </a>
-            );
-          })}
-        </nav>
-      )}
-
-      <main className="flex min-h-screen w-full flex-col">
-
-        {/* ═══ 00 HERO / INTRO ═══ */}
-        <section id="home" className="relative min-h-screen overflow-hidden">
-          {/* Background photo */}
-          <div className="absolute inset-0">
-            <img
-              src="/Foto_Background3.jpeg"
-              alt=""
-              aria-hidden="true"
-              className="h-full w-full object-cover object-[55%_center] md:object-[65%_center]"
-            />
-            <div className="hero-gradient absolute inset-0" />
-            <div className="absolute inset-0 bg-[rgb(10,9,7)]/30" />
-          </div>
-
-          {/* Content */}
-          <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 pt-28 pb-20 md:px-12">
-
-            {/* Name + role */}
-            <div className="flex items-center gap-3">
-              <span className="font-mono text-xs font-bold uppercase tracking-[0.25em] text-white/50">
-                Kaesar Adam Rafano
+      <main>
+        {/* ═══ 00 HERO ═══ */}
+        <section id="home" className="relative flex min-h-screen flex-col justify-between bg-paper pt-28 pb-8">
+          <div className={`${WRAP} flex flex-1 flex-col justify-center py-10`}>
+            <div className="mb-8 flex items-center gap-3">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ember opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ember" />
               </span>
-              <span className="hidden sm:inline text-white/25">·</span>
-              <span className="hidden sm:inline font-mono text-xs font-bold uppercase tracking-[0.25em] text-white/50">
-                PHP &amp; JavaScript Developer
-              </span>
+              <Label className="tracking-[0.18em]">Available for work · Portfolio 2026</Label>
             </div>
 
-            {/* Main hero content */}
-            <div className="flex flex-col gap-10">
-              <div className="hidden sm:flex items-center gap-6">
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Selected Proof</span>
-                <div className="h-px w-24 bg-white/15" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/40">Production Scale</span>
-              </div>
+            <h1 className="font-sans font-extrabold leading-[0.92] tracking-[-0.04em] text-ink"
+              style={{ fontSize: "clamp(3rem, 9vw, 7.5rem)" }}>
+              Kaesar<br />Adam Rafano
+            </h1>
 
-              {/* Metrics */}
-              <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-12 md:gap-20">
-                {HERO_STATS.map((stat, i) => (
-                  <StatNumber key={i} value={stat.value} suffix={stat.suffix} label={stat.label} />
+            <div className="mt-6 flex items-center gap-4">
+              <span className="seam-tick" />
+              <span className="font-mono text-xs font-medium uppercase tracking-[0.22em] text-ink">Web Developer</span>
+              <Label className="tracking-[0.14em]">· {LOCATION}</Label>
+            </div>
+
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft md:text-xl">
+              I&apos;m a web developer based in Jakarta. As a student I&apos;ve already shipped real,
+              deployed products across web, mobile, and AI-integrated systems, and right now I&apos;m
+              going deep on front-end. Open to remote and international roles.
+            </p>
+
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <a href="#contact"
+                className="lift-hover inline-flex items-center gap-2.5 bg-ink px-6 py-3.5 text-sm font-semibold text-paper transition-colors duration-200 hover:bg-ember">
+                Get in touch <FaArrowRight className="h-3 w-3" />
+              </a>
+              <div className="flex gap-1">
+                {socialMedia.map((item) => (
+                  <a key={item.id} href={item.link} target="_blank" rel="noreferrer" className={ICON_BTN} aria-label="Social link">
+                    {renderSocialIcon(item.id)}
+                  </a>
                 ))}
               </div>
+            </div>
+          </div>
 
-              <div className="h-px w-full max-w-2xl bg-white/10" />
-
-              {/* Description + CTA */}
-              <div className="flex max-w-2xl flex-col gap-6">
-                <p className="font-newsreader text-lg leading-8 text-white/75 md:text-xl">
-                  I build polished React and Next.js interfaces that feel right and go full-stack
-                  when the product needs it. I&apos;ve shipped AI-integrated systems in production,
-                  from pixel-perfect layouts to the APIs behind them. Open to remote &amp; international roles.
-                </p>
-                <div className="flex items-center gap-4">
-                  <a href="#contact"
-                    className="inline-flex items-center gap-2.5 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-sm font-bold uppercase tracking-[0.15em] text-white backdrop-blur-sm transition-all duration-200 hover:border-white/60 hover:bg-white/10">
-                    Get in touch <FaArrowRight className="h-3 w-3" />
-                  </a>
-                  <div className="flex gap-1">
-                    {socialMedia.map((item) => (
-                      <a key={item.id} href={item.link} target="_blank" rel="noreferrer"
-                        className={iconBtnClass}>
-                        <span className="text-white/50 transition-colors group-hover:text-white">
-                          {renderSocialIcon(item.id)}
-                        </span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Scroll hint */}
-              <div className="flex items-center gap-2">
-                <div className="h-8 w-px bg-white/20" />
-                <span className="font-mono text-[9px] uppercase tracking-[0.35em] text-white/30">Scroll</span>
-              </div>
+          <div className="border-t border-line">
+            <div className={`${WRAP} flex items-center justify-between py-4`}>
+              <Label className="tracking-[0.18em]">00 · Intro</Label>
+              <Label className="tracking-[0.18em]">Scroll ↓</Label>
             </div>
           </div>
         </section>
 
-        {/* ═══ NOW BAND ═══ */}
-        <section className="border-b border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-default)/1)] transition-colors duration-500">
-          <div className="mx-auto w-full max-w-7xl px-6 py-12 md:px-12 md:py-16">
-            <div className="mb-10 flex items-center gap-3">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-[0.3em] text-[rgb(var(--pf-gray-400)/1)]">
-                Now · 2026
-              </span>
+        {/* ═══ STANDING BAND ═══ */}
+        <section className="bg-surface">
+          <div className={`${WRAP} py-16 md:py-20`}>
+            <div className="grid grid-cols-3 gap-6 border-b border-line pb-14 sm:gap-10">
+              {HERO_STATS.map((s, i) => (
+                <CompactStat key={i} value={s.value} suffix={s.suffix} label={s.label} />
+              ))}
             </div>
-            <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {HERO_STATUS.map((item, i) => (
                 <div key={i} className="flex flex-col gap-2">
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                    {item.category}
-                  </p>
-                  <p className="font-newsreader text-xl font-semibold italic leading-snug text-[rgb(var(--pf-gray-900)/1)]">
-                    {item.title}
-                  </p>
-                  <p className="text-sm text-[rgb(var(--pf-gray-500)/1)]">{item.desc}</p>
+                  <Label className="text-[10px] text-ember-deep">{item.category}</Label>
+                  <p className="text-lg font-bold leading-snug tracking-[-0.01em] text-ink">{item.title}</p>
+                  <p className="text-sm leading-relaxed text-ink-soft">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ═══ 01 BACKGROUND & WORKING STYLE ═══ */}
-        <section id="about" className="bg-[rgb(var(--pf-gray-default)/1)] transition-colors duration-500">
+        {/* ═══ 01 BACKGROUND ═══ */}
+        <section id="about" className="bg-paper">
+          <Strata num="01" label="Background & Working Style" />
 
-          {/* Section header */}
-          <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-8 md:px-12 transition-colors duration-500">
-            <div className="mx-auto flex w-full max-w-7xl items-baseline gap-6">
-              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">01</span>
-              <h2 className="font-archivo text-2xl font-black tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] md:text-3xl">
-                Background &amp; Working Style
-              </h2>
-            </div>
-          </div>
-
-          {/* Horizontal skills ticker */}
-          <div className="overflow-hidden border-b border-[rgb(var(--pf-gray-200)/1)] py-4 transition-colors duration-500">
+          <div className="overflow-hidden border-b border-line py-3.5">
             <div className="ticker-track">
               {[...TICKER_SKILLS, ...TICKER_SKILLS].map((skill, i) => (
-                <span key={i} className="mx-6 shrink-0 text-[11px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                  {skill}
-                  <span className="ml-6 text-[rgb(var(--pf-gray-300)/1)]">·</span>
+                <span key={i} className="mx-5 shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-ink-faint">
+                  {skill} <span className="ml-5 text-line">/</span>
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Content */}
-          <div ref={aboutRef} className="mx-auto w-full max-w-7xl px-6 py-20 md:px-12 md:py-28">
-            <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_300px] lg:gap-24">
-
-              {/* Left: text + timeline */}
+          <div ref={aboutRef} className={`${WRAP} py-16 md:py-28`}>
+            <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_320px] lg:gap-24">
               <div className="flex flex-col gap-8">
-                <h3 className="reveal font-archivo text-4xl font-black leading-tight tracking-[-0.03em] text-[rgb(var(--pf-gray-900)/1)] md:text-5xl">
-                  A developer who ships<br />front to back.
-                </h3>
+                <h2 className="reveal font-sans text-4xl font-extrabold leading-[1.02] tracking-[-0.03em] text-ink md:text-5xl">
+                  A developer who<br />ships, front to back.
+                </h2>
+                <p className="reveal stagger-1 max-w-[62ch] text-lg leading-relaxed text-ink-soft">
+                  I&apos;m Kaesar, a web developer in Jakarta. I care about interfaces that feel right,
+                  and I work mostly with React and Next.js. When a product needs more than the front end,
+                  I go deeper into the stack.
+                </p>
+                <p className="reveal stagger-2 max-w-[62ch] text-lg leading-relaxed text-ink-soft">
+                  I&apos;ve shipped Claude Sonnet, Gemini 2.5 Flash, and Groq in real products, not side
+                  projects. Wiring an AI fallback cascade and polishing a Tailwind layout get the same
+                  attention from me.
+                </p>
+                <p className="reveal stagger-3 max-w-[62ch] text-lg leading-relaxed text-ink-soft">
+                  I do my best work owning the messy middle. Build the component, wire the API, push the
+                  deploy, and still catch the 4px that feels off.
+                </p>
+                <Label className="reveal stagger-4 tracking-[0.14em]">Kaesar Adam Rafano, Jakarta 2026</Label>
 
-                {/* Drop-cap paragraph */}
-                <p className="reveal stagger-1 drop-cap font-newsreader text-lg leading-8 text-[rgb(var(--pf-gray-600)/1)] md:text-xl">
-                  I&apos;m Kaesar, a front-end-focused developer based in Jakarta who cares
-                  deeply about building interfaces that feel right. I work primarily with React
-                  and Next.js, though I&apos;m never afraid to go deeper into the stack when
-                  the product demands it.
-                </p>
-                <p className="reveal stagger-2 font-newsreader text-lg leading-8 text-[rgb(var(--pf-gray-600)/1)] md:text-xl">
-                  I&apos;ve shipped Claude Sonnet, Gemini 2.5 Flash, and Groq API in real
-                  products, not side projects. Architecting an AI fallback cascade or polishing
-                  a Tailwind layout pixel by pixel gets the same level of attention from me.
-                </p>
-                <p className="reveal stagger-3 font-newsreader text-lg leading-8 text-[rgb(var(--pf-gray-600)/1)] md:text-xl">
-                  I do my best work when a team needs someone to own the messy middle. Design
-                  the component, wire the API, push through the deployment, and still catch
-                  the 4px spacing that doesn&apos;t feel right.
-                </p>
-
-                {/* Signature */}
-                <p className="reveal stagger-4 font-newsreader text-base italic text-[rgb(var(--pf-gray-400)/1)]">
-                  — Kaesar Adam Rafano, Jakarta 2026
-                </p>
-
-                {/* Timeline */}
-                <div className="reveal stagger-5 mt-4 flex flex-col">
-                  <p className="mb-8 font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[rgb(var(--pf-gray-400)/1)]">
-                    Through the years
-                  </p>
+                <div className="reveal stagger-5 mt-6 flex flex-col">
+                  <Label className="mb-8 tracking-[0.18em]">Through the years</Label>
                   {TIMELINE.map((item, i) => (
                     <div key={i} className="flex gap-6">
                       <div className="flex flex-col items-center">
-                        <div className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full ${
-                          item.current
-                            ? "bg-[rgb(var(--pf-accent)/1)]"
-                            : "bg-[rgb(var(--pf-gray-300)/1)]"
-                        }`} />
-                        {i < TIMELINE.length - 1 && (
-                          <div className="mt-1 w-px flex-1 bg-[rgb(var(--pf-gray-200)/1)]" style={{ minHeight: 32 }} />
-                        )}
+                        <div className={`mt-1.5 h-2 w-2 shrink-0 ${item.current ? "bg-ember" : "bg-ink-faint"}`} />
+                        {i < TIMELINE.length - 1 && <div className="mt-1 w-px flex-1 bg-line" style={{ minHeight: 34 }} />}
                       </div>
-                      <div className="flex flex-col gap-1.5 pb-8">
-                        <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                          {item.year}
-                        </span>
-                        <p className="font-newsreader text-base leading-relaxed text-[rgb(var(--pf-gray-600)/1)]">
-                          {item.event}
-                        </p>
+                      <div className="flex flex-col gap-1.5 pb-9">
+                        <Label className="tracking-[0.16em]">{item.year}</Label>
+                        <p className="max-w-[52ch] leading-relaxed text-ink-soft">{item.event}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Right: key facts */}
-              <div className="reveal-left flex flex-col gap-0 border-t border-[rgb(var(--pf-gray-200)/1)] pt-8 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-8 transition-colors duration-500">
-                {[
-                  { label: "Currently", value: "Back-End Engineering Trainee · Maxy Academy" },
-                  { label: "Also leading", value: "3-person team · UKM Seni Religi web platform" },
-                  { label: "Based in", value: LOCATION },
-                  { label: "Open to", value: "Remote · International · Senior roles" },
-                  { label: "University", value: "Brawijaya University" },
-                  { label: "Stack", value: "PHP · Laravel · JS · Next.js · Flutter" },
-                ].map((fact, i) => (
-                  <div key={i} className={`border-b border-[rgb(var(--pf-gray-200)/1)] py-5 stagger-${i + 1} transition-colors duration-500`}>
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                      {fact.label}
-                    </p>
-                    <p className="text-sm font-semibold text-[rgb(var(--pf-gray-800)/1)]">
-                      {fact.value}
-                    </p>
-                  </div>
-                ))}
+              <div className="reveal-right flex flex-col gap-8">
+                <div className="overflow-hidden border border-line">
+                  <img src="/Foto_Background3.jpeg" alt="Kaesar Adam Rafano" className="aspect-[4/5] w-full object-cover object-[60%_center]" />
+                </div>
+                <div className="flex flex-col">
+                  {[
+                    { label: "Currently", value: "Back-End Trainee · Maxy Academy" },
+                    { label: "Also leading", value: "3-person team · UKM Seni Religi platform" },
+                    { label: "Based in", value: LOCATION },
+                    { label: "Open to", value: "Remote · International roles" },
+                    { label: "University", value: "Brawijaya University" },
+                    { label: "Stack", value: "React · Next.js · Laravel · Flutter" },
+                  ].map((fact) => (
+                    <div key={fact.label} className="border-b border-line py-4 first:border-t">
+                      <Label className="mb-1 block text-[10px]">{fact.label}</Label>
+                      <p className="text-sm font-semibold text-ink">{fact.value}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* ═══ 02 EXPERIENCE ═══ */}
-        <section id="experience" className="border-t border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-50)/1)] transition-colors duration-500">
-
-          <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-8 md:px-12 transition-colors duration-500">
-            <div className="mx-auto flex w-full max-w-7xl items-baseline gap-6">
-              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">02</span>
-              <h2 className="font-archivo text-2xl font-black tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] md:text-3xl">
-                Engineering Experience
-              </h2>
-            </div>
-          </div>
-
-          <div ref={expRef} className="mx-auto w-full max-w-7xl px-6 py-12 md:px-12 md:py-16">
-            <p className="reveal mb-12 max-w-sm font-newsreader text-base italic text-[rgb(var(--pf-gray-500)/1)]">
-              {workExperience.length} roles · building since 2024
-            </p>
-
+        <section id="experience" className="bg-surface">
+          <Strata num="02" label="Engineering Experience" />
+          <div ref={expRef} className={`${WRAP} py-14 md:py-20`}>
+            <Label className="reveal mb-10 block tracking-[0.14em]">{workExperience.length} roles · building since 2024</Label>
             <div className="flex flex-col">
               {workExperience.map((item, index) => (
                 <div key={item.id}
-                  className={`reveal-left group border-t border-[rgb(var(--pf-gray-200)/1)] py-10 grid grid-cols-1 gap-6 md:grid-cols-[80px_1fr_200px] md:gap-10 md:items-start stagger-${Math.min(index + 1, 5)} transition-colors duration-500`}>
-
-                  {/* Roman numeral */}
-                  <div className="font-archivo text-4xl font-black text-[rgb(var(--pf-gray-200)/1)] transition-colors duration-300 group-hover:text-[rgb(var(--pf-accent)/0.3)]">
-                    {ROMAN[index]}
+                  className={`reveal-left group grid grid-cols-1 gap-6 border-t border-line py-10 md:grid-cols-[64px_1fr_180px] md:gap-10 stagger-${Math.min(index + 1, 5)}`}>
+                  <div className="font-mono text-2xl font-semibold text-ink-faint transition-colors duration-300 group-hover:text-ember">
+                    {String(index + 1).padStart(2, "0")}
                   </div>
-
-                  {/* Content */}
                   <div className="flex flex-col gap-4">
-                    <div className="flex items-start gap-4">
-                      <img src={item.thumbnail} alt={item.title}
-                        className="h-8 w-auto max-w-[80px] object-contain opacity-70 transition-opacity group-hover:opacity-100" />
-                    </div>
-                    <h3 className="font-archivo text-base font-bold leading-snug text-[rgb(var(--pf-gray-900)/1)]">
-                      {item.title}
-                    </h3>
+                    <img src={item.thumbnail} alt={item.title} className="h-7 w-auto max-w-[76px] object-contain opacity-80" />
+                    <h3 className="text-base font-bold leading-snug text-ink">{item.title}</h3>
                     <ul className="flex flex-col gap-3">
-                      {((item as any).descList ?? [item.desc]).map((bullet: string) => (
-                        <li key={`${item.id}-${bullet.slice(0, 20)}`}
-                          className="flex items-start gap-3 font-newsreader text-sm leading-relaxed text-[rgb(var(--pf-gray-600)/1)]">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-[rgb(var(--pf-gray-400)/1)]" />
-                          <span>{bullet}</span>
+                      {((item as { descList?: string[] }).descList ?? [item.desc]).map((bullet: string) => (
+                        <li key={`${item.id}-${bullet.slice(0, 18)}`} className="flex items-start gap-3 leading-relaxed text-ink-soft">
+                          <span className="mt-2.5 h-1 w-1 shrink-0 bg-ember" />
+                          <span className="max-w-[64ch] text-sm">{bullet}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-
-                  {/* Date */}
                   <div className="md:text-right">
-                    <span className="font-mono text-xs font-medium tracking-wide text-[rgb(var(--pf-gray-400)/1)]">
-                      {formatDateRange(item)}
-                    </span>
+                    <span className="font-mono text-[11px] tracking-[0.06em] text-ink-faint">{formatDateRange(item)}</span>
                   </div>
                 </div>
               ))}
-              <div className="border-t border-[rgb(var(--pf-gray-200)/1)] transition-colors duration-500" />
+              <div className="border-t border-line" />
             </div>
           </div>
         </section>
 
-        {/* ═══ TOOLKIT ═══ */}
-        <section id="toolkit" className="border-t border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-default)/1)] transition-colors duration-500">
-
-          <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-8 md:px-12 transition-colors duration-500">
-            <div className="mx-auto flex w-full max-w-7xl items-baseline gap-6">
-              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">05</span>
-              <h2 className="font-archivo text-2xl font-black tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] md:text-3xl">
-                Toolkit
-              </h2>
-            </div>
-          </div>
-
-          <div className="mx-auto w-full max-w-7xl px-6 py-12 md:px-12 md:py-16">
-            <div className="grid grid-cols-1 gap-px overflow-hidden border border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-200)/1)] md:grid-cols-2 lg:grid-cols-3 transition-colors duration-500">
-              {TOOLKIT.map((kit, i) => (
-                <div key={i} className="flex flex-col gap-5 bg-[rgb(var(--pf-gray-default)/1)] p-8 transition-colors duration-500">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-[10px] font-bold text-[rgb(var(--pf-accent)/0.7)]">
-                        T.{String(i + 1).padStart(2, "0")}
-                      </span>
-                      <span className="font-archivo text-sm font-black uppercase tracking-[0.08em] text-[rgb(var(--pf-gray-900)/1)]">
-                        {kit.label}
-                      </span>
-                    </div>
-                    <span className="shrink-0 font-mono text-[10px] font-bold text-[rgb(var(--pf-gray-300)/1)]">
-                      {kit.stars} STARS
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {kit.skills.map((skill) => (
-                      <span key={skill}
-                        className="rounded-full border border-[rgb(var(--pf-gray-200)/1)] px-3 py-1 text-[11px] font-semibold text-[rgb(var(--pf-gray-600)/1)] transition-all duration-200 hover:border-[rgb(var(--pf-accent)/0.4)] hover:text-[rgb(var(--pf-gray-900)/1)]">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ 03 PROJECTS / PLATES ═══ */}
-        <section id="work" className="border-t border-[rgb(var(--pf-gray-200)/1)] transition-colors duration-500">
-
-          <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-8 md:px-12 transition-colors duration-500">
-            <div className="mx-auto flex w-full max-w-7xl items-baseline gap-6">
-              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">03</span>
-              <h2 className="font-archivo text-2xl font-black tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] md:text-3xl">
-                Independent Projects
-              </h2>
-            </div>
-          </div>
-
-          {/* Contents list */}
-          <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-6 md:px-12 transition-colors duration-500">
-            <div className="mx-auto w-full max-w-7xl">
-              <p className="mb-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                Contents · {projects.length} plates · this issue
-              </p>
-              <div className="flex flex-wrap gap-x-8 gap-y-1.5">
-                {projects.map((p, i) => (
-                  <span key={p.id} className="font-mono text-xs text-[rgb(var(--pf-gray-500)/1)]">
-                    <span className="text-[rgb(var(--pf-accent)/0.8)]">B.{String(i + 1).padStart(2, "0")}</span>
-                    {" "}{p.title}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Plates */}
-          <div ref={workRef} className="mx-auto w-full max-w-7xl px-6 py-12 md:px-12 md:py-16">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+        {/* ═══ 03 PROJECTS ═══ */}
+        <section id="work" className="bg-paper">
+          <Strata num="03" label="Independent Projects" />
+          <div ref={workRef} className={`${WRAP} py-14 md:py-20`}>
+            <Label className="reveal mb-10 block tracking-[0.14em]">{projects.length} shipped · click through to live builds</Label>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {projects.map((project, index) => {
                 const hasGithub = isUrl(project.githubLink);
                 const hasLive = isUrl(project.liveUrl);
-                const techLabels = Array.from(new Set(
-                  project.iconLists.map((icon) => iconLabelMap[icon] ?? toReadableLabel(icon))
-                ));
+                const techLabels = Array.from(new Set(project.iconLists.map((icon) => iconLabelMap[icon] ?? toReadableLabel(icon))));
                 const plateNum = `B.${String(index + 1).padStart(2, "0")}`;
-
                 return (
-                  <article
-                    key={project.id}
-                    className={`reveal plate-card stagger-${Math.min(index + 1, 6)} flex flex-col overflow-hidden border border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-default)/1)] transition-colors duration-500`}
-                  >
-                    {/* Plate header */}
-                    <div className="flex items-center justify-between border-b border-[rgb(var(--pf-gray-200)/1)] px-5 py-3 transition-colors duration-500">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-accent)/1)]">
-                        {plateNum}
-                      </span>
-                      <div className="flex items-center gap-2">
+                  <article key={project.id}
+                    className={`reveal lift-hover stagger-${Math.min(index + 1, 6)} flex flex-col border border-line bg-paper`}>
+                    <div className="flex items-center justify-between border-b border-line px-4 py-2.5">
+                      <Label className="text-ember-deep tracking-[0.14em]">{plateNum}</Label>
+                      <div className="flex items-center gap-1">
                         {hasGithub ? (
-                          <a href={project.githubLink} target="_blank" rel="noreferrer"
-                            className="rounded p-1 text-[rgb(var(--pf-gray-400)/1)] transition-colors hover:text-[rgb(var(--pf-gray-900)/1)]">
+                          <a href={project.githubLink} target="_blank" rel="noreferrer" className={ICON_BTN} aria-label="GitHub">
                             <FaGithub className="h-3.5 w-3.5" />
                           </a>
                         ) : (
-                          <span className="cursor-not-allowed rounded p-1 text-[rgb(var(--pf-gray-200)/1)]">
-                            <FaGithub className="h-3.5 w-3.5" />
-                          </span>
+                          <span className="p-2 text-line"><FaGithub className="h-3.5 w-3.5" /></span>
                         )}
                         {hasLive && (
-                          <a href={project.liveUrl} target="_blank" rel="noreferrer"
-                            className="rounded p-1 text-[rgb(var(--pf-gray-400)/1)] transition-colors hover:text-[rgb(var(--pf-gray-900)/1)]">
+                          <a href={project.liveUrl} target="_blank" rel="noreferrer" className={ICON_BTN} aria-label="Live site">
                             <FaArrowUpRightFromSquare className="h-3 w-3" />
                           </a>
                         )}
                       </div>
                     </div>
-
-                    {/* Project image */}
-                    <div className="aspect-video overflow-hidden bg-[rgb(var(--pf-gray-100)/1)]">
+                    <div className="aspect-video overflow-hidden border-b border-line bg-surface">
                       {hasLive ? (
                         <a href={project.liveUrl} target="_blank" rel="noreferrer" className="block h-full">
-                          <img src={project.img} alt={project.title}
-                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                          <img src={project.img} alt={project.title} className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]" />
                         </a>
                       ) : (
-                        <img src={project.img} alt={project.title}
-                          className="h-full w-full object-cover" />
+                        <img src={project.img} alt={project.title} className="h-full w-full object-cover" />
                       )}
                     </div>
-
-                    {/* Project info */}
-                    <div className="flex flex-1 flex-col gap-4 p-5">
-                      <h3 className="font-archivo text-base font-bold leading-snug text-[rgb(var(--pf-gray-900)/1)]">
-                        {project.title}
-                      </h3>
-                      <p className="font-newsreader text-sm leading-relaxed text-[rgb(var(--pf-gray-500)/1)]">
-                        {project.des}
-                      </p>
+                    <div className="flex flex-1 flex-col gap-3 p-5">
+                      <h3 className="text-base font-bold leading-snug text-ink">{project.title}</h3>
+                      <p className="text-sm leading-relaxed text-ink-soft">{project.des}</p>
                       <div className="mt-auto flex flex-wrap gap-1.5 pt-2">
                         {techLabels.map((tag) => (
-                          <span key={`${project.id}-${tag}`}
-                            className="rounded-full bg-[rgb(var(--pf-gray-100)/1)] px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.1em] text-[rgb(var(--pf-gray-500)/1)] transition-colors duration-500">
-                            {tag}
-                          </span>
+                          <Tag key={`${project.id}-${tag}`} variant="meta">{tag}</Tag>
                         ))}
                       </div>
                     </div>
@@ -825,127 +553,87 @@ export default function PortfolioUI() {
           </div>
         </section>
 
-        {/* ═══ 04 CONTACT ═══ */}
-        <section id="contact" className="border-t border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-50)/1)] transition-colors duration-500">
-
-          <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-8 md:px-12 transition-colors duration-500">
-            <div className="mx-auto flex w-full max-w-7xl items-baseline gap-6">
-              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">04</span>
-              <h2 className="font-archivo text-2xl font-black tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] md:text-3xl">
-                Contact
-              </h2>
+        {/* ═══ 04 TOOLKIT ═══ */}
+        <section id="toolkit" className="bg-surface">
+          <Strata num="04" label="Toolkit" />
+          <div ref={toolkitRef} className={`${WRAP} py-14 md:py-20`}>
+            <div className="grid grid-cols-1 gap-x-14 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+              {TOOLKIT.map((kit, i) => (
+                <div key={i} className={`reveal stagger-${Math.min(i + 1, 6)} flex flex-col gap-5`}>
+                  <div className="flex items-center gap-3 border-b border-line pb-3">
+                    <span className="font-mono text-[11px] font-medium text-ember-deep">T.{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-sm font-bold uppercase tracking-[0.06em] text-ink">{kit.label}</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {kit.skills.map((skill) => (
+                      <Tag key={skill} variant="skill">{skill}</Tag>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+        </section>
 
-          <div ref={contactRef} className="mx-auto w-full max-w-7xl px-6 py-16 md:px-12 md:py-24">
+        {/* ═══ 05 CONTACT ═══ */}
+        <section id="contact" className="bg-paper">
+          <Strata num="05" label="Contact" />
+          <div ref={contactRef} className={`${WRAP} py-16 md:py-24`}>
+            <h2 className="reveal mb-12 font-sans font-extrabold leading-[0.9] tracking-[-0.04em] text-ink"
+              style={{ fontSize: "clamp(3rem, 9vw, 7.5rem)" }}>
+              Let&apos;s work<br /><span className="text-ink-faint">together.</span>
+            </h2>
 
-            <h3 className="reveal mb-12 font-archivo font-black leading-[0.88] tracking-[-0.04em] text-[rgb(var(--pf-gray-900)/1)]"
-              style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}>
-              Let&apos;s work<br />
-              <span className="text-[rgb(var(--pf-gray-300)/1)]">together.</span>
-            </h3>
-
-            <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_280px]">
-
-              {/* Form */}
+            <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_300px]">
               <form onSubmit={handleFormSubmit} className="reveal stagger-1 flex flex-col gap-6">
                 <div className="flex flex-col gap-3">
-                  <label className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                    I&apos;m reaching out about
-                  </label>
+                  <Label className="text-[10px]">I&apos;m reaching out about</Label>
                   <div className="flex flex-wrap gap-2">
                     {["Senior Role", "Contract", "Design Work", "Other"].map((type) => (
-                      <button
-                        key={type}
-                        type="button"
-                        onClick={() => setInquiryType((prev) => prev === type ? "" : type)}
-                        className={`rounded-full border px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-150 ${
+                      <button key={type} type="button" onClick={() => setInquiryType((prev) => prev === type ? "" : type)}
+                        className={`rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-150 ${
                           inquiryType === type
-                            ? "border-[rgb(var(--pf-accent)/1)] bg-[rgb(var(--pf-accent)/0.08)] text-[rgb(var(--pf-accent)/1)]"
-                            : "border-[rgb(var(--pf-gray-200)/1)] text-[rgb(var(--pf-gray-400)/1)] hover:border-[rgb(var(--pf-gray-400)/1)] hover:text-[rgb(var(--pf-gray-800)/1)]"
-                        }`}
-                      >
+                            ? "border-ember bg-ember text-paper"
+                            : "border-line text-ink-faint hover:border-ink-faint hover:text-ink"
+                        }`}>
                         {type}
                       </button>
                     ))}
                   </div>
                 </div>
+
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                      placeholder="Your name"
-                      className="w-full border border-[rgb(var(--pf-gray-200)/1)] bg-transparent px-4 py-3 text-sm text-[rgb(var(--pf-gray-900)/1)] outline-none transition-colors duration-200 placeholder:text-[rgb(var(--pf-gray-300)/1)] focus:border-[rgb(var(--pf-accent)/0.6)] bg-[rgb(var(--pf-gray-default)/1)]"
-                    />
-                  </div>
-                  <div>
-                    <label className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                      placeholder="your@email.com"
-                      className="w-full border border-[rgb(var(--pf-gray-200)/1)] bg-transparent px-4 py-3 text-sm text-[rgb(var(--pf-gray-900)/1)] outline-none transition-colors duration-200 placeholder:text-[rgb(var(--pf-gray-300)/1)] focus:border-[rgb(var(--pf-accent)/0.6)] bg-[rgb(var(--pf-gray-default)/1)]"
-                    />
-                  </div>
+                  <Field label="Name" required value={formData.name} placeholder="Your name"
+                    onChange={(v) => setFormData((p) => ({ ...p, name: v }))} />
+                  <Field label="Email" type="email" required value={formData.email} placeholder="your@email.com"
+                    onChange={(v) => setFormData((p) => ({ ...p, email: v }))} />
                 </div>
-                <div>
-                  <label className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                    Note
-                  </label>
-                  <textarea
-                    rows={6}
-                    value={formData.message}
-                    onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
-                    placeholder="What would you like to work on?"
-                    className="w-full resize-none border border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-default)/1)] px-4 py-3 text-sm text-[rgb(var(--pf-gray-900)/1)] outline-none transition-colors duration-200 placeholder:text-[rgb(var(--pf-gray-300)/1)] focus:border-[rgb(var(--pf-accent)/0.6)]"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="self-start inline-flex items-center gap-3 border border-[rgb(var(--pf-gray-900)/1)] px-7 py-3 text-sm font-bold text-[rgb(var(--pf-gray-900)/1)] transition-all duration-200 hover:bg-[rgb(var(--pf-gray-900)/1)] hover:text-[rgb(var(--pf-gray-default)/1)]"
-                >
+
+                <Field label="Note" textarea value={formData.message} placeholder="What would you like to work on?"
+                  onChange={(v) => setFormData((p) => ({ ...p, message: v }))} />
+
+                <button type="submit"
+                  className="lift-hover self-start inline-flex items-center gap-3 bg-ink px-7 py-3.5 text-sm font-semibold text-paper transition-colors duration-200 hover:bg-ember">
                   Send message <FaArrowRight className="h-3 w-3" />
                 </button>
               </form>
 
-              {/* Aside */}
-              <div className="reveal stagger-2 flex flex-col gap-8 border-t border-[rgb(var(--pf-gray-200)/1)] pt-8 lg:border-t-0 lg:pt-0 lg:border-l lg:pl-8 transition-colors duration-500">
+              <div className="reveal stagger-2 flex flex-col gap-8 border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
                 <div>
-                  <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                    Email
-                  </p>
+                  <Label className="mb-2 block text-[10px]">Email</Label>
                   <div className="flex items-center gap-2">
-                    <a href={`mailto:${CONTACT_EMAIL}`}
-                      className="text-sm font-semibold text-[rgb(var(--pf-gray-800)/1)] transition-colors hover:text-[rgb(var(--pf-accent)/1)]">
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-semibold text-ink transition-colors hover:text-ember-deep">
                       {CONTACT_EMAIL}
                     </a>
-                    <button type="button" onClick={() => handleCopy("email", CONTACT_EMAIL)}
-                      aria-label="Copy email"
-                      className={`${iconBtnLightClass} ${copiedKey === "email" ? "copy-success" : ""}`}>
-                      {copiedKey === "email"
-                        ? <FaCheck className="h-3 w-3 text-emerald-500" />
-                        : <FaRegCopy className="h-3 w-3 text-[rgb(var(--pf-gray-400)/1)]" />}
+                    <button type="button" onClick={() => handleCopy("email", CONTACT_EMAIL)} aria-label="Copy email"
+                      className={`${ICON_BTN} ${copiedKey === "email" ? "copy-success" : ""}`}>
+                      {copiedKey === "email" ? <FaCheck className="h-3 w-3 text-ember" /> : <FaRegCopy className="h-3 w-3" />}
                     </button>
                   </div>
-                  {copiedKey === "email" && (
-                    <p className="mt-1 text-xs font-medium text-emerald-500">✓ Copied</p>
-                  )}
                 </div>
 
                 <div>
-                  <p className="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                    Channels
-                  </p>
+                  <Label className="mb-3 block text-[10px]">Channels</Label>
                   <div className="flex flex-col gap-3">
                     {[
                       { label: "GitHub", icon: <FaGithub className="h-4 w-4" />, link: "https://github.com/damhacker04" },
@@ -953,23 +641,19 @@ export default function PortfolioUI() {
                       { label: "Instagram", icon: <FaInstagram className="h-4 w-4" />, link: "https://instagram.com/damdam_rafano" },
                     ].map((ch) => (
                       <a key={ch.label} href={ch.link} target="_blank" rel="noreferrer"
-                        className="flex items-center gap-3 text-sm text-[rgb(var(--pf-gray-600)/1)] transition-colors hover:text-[rgb(var(--pf-gray-900)/1)]">
-                        <span className="text-[rgb(var(--pf-gray-400)/1)]">{ch.icon}</span>
-                        {ch.label}
+                        className="flex items-center gap-3 text-sm text-ink-soft transition-colors hover:text-ink">
+                        <span className="text-ink-faint">{ch.icon}</span>{ch.label}
                       </a>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <p className="mb-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
-                    Based in
-                  </p>
-                  <p className="text-sm text-[rgb(var(--pf-gray-600)/1)]">{LOCATION}</p>
+                  <Label className="mb-2 block text-[10px]">Based in</Label>
+                  <p className="text-sm text-ink-soft">{LOCATION}</p>
                 </div>
 
-                <a href={CV_PATH} download
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[rgb(var(--pf-gray-800)/1)] transition-colors hover:text-[rgb(var(--pf-accent)/1)]">
+                <a href={CV_PATH} download className="inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-ember-deep">
                   Download CV <FaArrowUpRightFromSquare className="h-3 w-3" />
                 </a>
               </div>
@@ -978,28 +662,21 @@ export default function PortfolioUI() {
         </section>
       </main>
 
-      {/* ═══ FOOTER (giant name) ═══ */}
-      <footer className="border-t border-[rgb(var(--pf-gray-200)/1)] transition-colors duration-500">
-        <div className="overflow-hidden px-6 pt-8 md:px-12">
-          <div className="mx-auto max-w-7xl">
-            <p
-              className="select-none font-archivo font-black leading-none tracking-[-0.05em] text-[rgb(var(--pf-gray-100)/1)] transition-colors duration-500"
-              style={{ fontSize: "clamp(5rem, 19vw, 17rem)" }}
-            >
+      {/* ═══ FOOTER ═══ */}
+      <footer className="border-t border-line bg-paper">
+        <div className="overflow-hidden px-6 pt-10 md:px-12">
+          <div className="mx-auto max-w-[76rem]">
+            <p className="select-none font-sans font-extrabold leading-none tracking-[-0.05em] text-surface"
+              style={{ fontSize: "clamp(4.5rem, 18vw, 16rem)" }}>
               Kaesar
             </p>
           </div>
         </div>
-        <div className="border-t border-[rgb(var(--pf-gray-200)/1)] px-6 py-5 transition-colors duration-500 md:px-12">
-          <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4">
-            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.25em] text-[rgb(var(--pf-gray-400)/1)]">
-              Vol. 01 · 2026
-            </span>
-            <p className="font-mono text-[10px] text-[rgb(var(--pf-gray-400)/1)]">
-              PHP &amp; JavaScript Developer
-            </p>
-            <a href="#home"
-              className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-[rgb(var(--pf-gray-400)/1)] transition-colors hover:text-[rgb(var(--pf-gray-900)/1)]">
+        <div className="border-t border-line">
+          <div className={`${WRAP} flex items-center justify-between gap-4 py-5`}>
+            <Label className="tracking-[0.18em]">Vol. 2026</Label>
+            <Label className="tracking-[0.14em]">Web Developer</Label>
+            <a href="#home" className="font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-ink-faint transition-colors hover:text-ink">
               Top ↑
             </a>
           </div>

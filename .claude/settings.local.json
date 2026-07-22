@@ -14,7 +14,37 @@
       "PowerShell(\\(Get-Content \"C:\\\\Users\\\\Adam R\\\\Downloads\\\\James Breedlove, Software Engineer.html\" | Measure-Object -Line\\).Lines)",
       "Bash(Stop-Process -Id 38332 -Force -ErrorAction SilentlyContinue)",
       "Bash(Start-Sleep -Seconds 2)",
-      "Bash(Write-Host \"Done\")"
+      "Bash(Write-Host \"Done\")",
+      "Bash(node \".claude/skills/impeccable/scripts/context.mjs\")",
+      "WebFetch(domain:www.magma.build)"
     ]
-  }
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/skills/impeccable/scripts/hook.mjs\"",
+            "timeout": 30,
+            "statusMessage": "Design deep pass"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Impeccable design detector: immediate-tier checks after Edit/Write/MultiEdit on UI files, full-rule deep pass on Stop."
 }
