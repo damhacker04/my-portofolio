@@ -69,8 +69,26 @@ export const gridItems = [
 ];
 
 export const projects = [
-  {
+    {
     id: 1,
+    title: "MAXY Performance Management",
+    des: "Architected and developed a full-stack employee performance management web application using Laravel (PHP), handling organizational hierarchy across C-Level, Leader, and Staff roles covering 6 departments and 40+ employees. Implemented a dynamic evaluation system with weighted KPIs, real-time performance tracking, and automated reporting.",
+    img: "/performance-management-maxy.png",
+    iconLists: ["/laravel.svg", "/php.svg", "/javascript.svg", "/tail.svg"],
+    githubLink: "https://github.com/damhacker04/performance-management-maxy",
+    liveUrl: "https://performance-management-maxy-production.up.railway.app/",
+  },
+      {
+    id: 2,
+    title: "AI CEO Circle",
+    des: "Architected and developed a full-stack bilingual landing page (EN/ID) for an exclusive executive AI mentoring program targeting C-suite leaders across Indonesia and Singapore, achieving a complete end-to-end product from concept to deployment. Engineered a Next.js front-end with a dark editorial design system (magma/navy palette, custom typography via Google Fonts), resulting in a premium brand experience aligned with WCAG AA accessibility standards",
+    img: "/ai-ceo-circle.png",
+    iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
+    githubLink: "https://github.com/damhacker04/landing-page-ai-ceo-circle",
+    liveUrl: "https://landing-page-ai-ceo-circle.vercel.app/",
+  },
+  {
+    id: 3,
     title: "Tripaw - AI Trip Planner",
     des: "Laravel 13 + Livewire 4 AI travel platform - Claude Sonnet → Gemini 2.5-flash → Groq fallback cascade with 45s latency budget & auto-failover. Midtrans Snap payments, Filament 5 admin + AppEvent observability (AI latency, slow queries >800ms), GitHub Actions CI/CD. 9 tables, 20 Livewire components.",
     img: "/landing-page-tripaw.png",
@@ -79,7 +97,7 @@ export const projects = [
     liveUrl: "https://tripaw.ghufronbagas.dev/",
   },
   {
-    id: 2,
+    id: 4,
     title: "TDR Seamless Transaction",
     des: "Laravel 12 e-commerce platform with affiliate system - 18 tables, 55+ routes, Midtrans + Telegram Bot webhooks, multi-role affiliate commission engine, Filament 3 admin, and 9-container Docker stack with Prometheus + Grafana monitoring. CI/CD via GitHub Actions.",
     img: "/landing-page-tdr.png",
@@ -88,7 +106,7 @@ export const projects = [
     liveUrl: "",
   },
   {
-    id: 3,
+    id: 5,
     title: "Company Profile Web PT. Saritama Dharma Buana",
     des: "Next.js 15 App Router marketing site for a Jakarta pest control company. 8 fully responsive pages, 3 service verticals, 52 shadcn/ui components, 6 documented portfolio projects, service coverage across 8 cities. Contact form with file upload, 5-year warranty terms, and WhatsApp deep-link CTA.",
     img: "/saritama_web.png",
@@ -97,7 +115,7 @@ export const projects = [
     liveUrl: "https://saritama.vercel.app/",
   },
   {
-    id: 4,
+    id: 6,
     title: "Klinik Sehat Selalu",
     des: "Next.js 16 + Supabase clinic management system. 6 role dashboards (patient, doctor, pharmacist, nurse, cashier, admin), 42 pages, 38 API routes, 21-table PostgreSQL schema, real-time queue with 30s polling, pharmacy inventory management, and printable billing receipts.",
     img: "/klinik_web.png",
@@ -106,7 +124,7 @@ export const projects = [
     liveUrl: "https://klinik-sehat-selalu.vercel.app",
   },
   {
-    id: 5,
+    id: 7,
     title: "RumahAman",
     des: "Kotlin + Jetpack Compose Android app (Clean Architecture MVVM). 16 screens, Groq API AI counselor (Llama 3.3 70B), recommendation engine for 3 service types across 4 violence categories, 8 Hilt-injected repositories, Firebase FCM via Cloud Functions (Node.js 22).",
     img: "/RumahAman.png",
@@ -115,7 +133,7 @@ export const projects = [
     liveUrl: "",
   },
   {
-    id: 6,
+    id: 8,
     title: "Trajectoria",
     des: "Flutter + Firebase cross-platform app (6 platforms, 276 Dart files). 35 screens, 2 user roles, Google Gemini 2.5 Flash AI submission review via Cloud Functions, 62 use cases, 46 BLoCs, 5-level learning hierarchy across 13 Firestore collections. Strict Clean Architecture with Dartz Either.",
     img: "/Trajectory.png",
@@ -124,7 +142,7 @@ export const projects = [
     liveUrl: "",
   },
   {
-    id: 7,
+    id: 9,
     title: "SolarQuiz",
     des: "Single-file 3D solar system game - Three.js v0.160.0 + vanilla JS, 667 lines, zero dependencies. 8 textured planets with real-time orbital mechanics, 3000-particle star field, raycasting hover, 40-question quiz engine (5 per planet, shuffled answers), and 3 scene control sliders. Deployed on Vercel.",
     img: "/solar3d_web.png",

@@ -62,12 +62,12 @@ const TICKER_SKILLS = [
 ];
 
 const TOOLKIT = [
-  { label: "Backend", skills: ["PHP", "Laravel", "Livewire", "Node.js", "REST APIs"] },
-  { label: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"] },
-  { label: "Mobile", skills: ["Flutter", "Dart", "Kotlin", "Jetpack Compose"] },
-  { label: "Database & Cloud", skills: ["PostgreSQL", "Supabase", "Firebase", "Firestore"] },
-  { label: "DevOps & Monitoring", skills: ["Docker"] },
-  { label: "AI & Integrations", skills: ["Claude Sonnet", "Gemini 2.5 Flash", "Groq API", "Midtrans", "Three.js"] },
+  { label: "Backend", skills: ["PHP", "Laravel", "Livewire", "Node.js", "REST APIs"], stars: 4 },
+  { label: "Frontend", skills: ["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS", "Tailwind CSS"], stars: 5 },
+  { label: "Mobile", skills: ["Flutter", "Dart", "Kotlin", "Jetpack Compose"], stars: 3 },
+  { label: "Database & Cloud", skills: ["PostgreSQL", "Supabase", "Firebase", "Firestore"], stars: 4 },
+  { label: "DevOps & Monitoring", skills: ["Docker"], stars: 2 },
+  { label: "AI & Integrations", skills: ["Claude Sonnet", "Gemini 2.5 Flash", "Groq API", "Midtrans", "Three.js"], stars: 4 },
 ];
 
 const TIMELINE = [
@@ -94,6 +94,7 @@ const navLinks = [
   { num: "02", label: "Experience", href: "#experience" },
   { num: "03", label: "Projects", href: "#work" },
   { num: "04", label: "Contact", href: "#contact" },
+  { num: "05", label: "Toolkit", href: "#toolkit" },
 ];
 
 const iconLabelMap: Record<string, string> = {
@@ -235,6 +236,7 @@ export default function PortfolioUI() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [inquiryType, setInquiryType] = useState<string>("");
 
   const aboutRef = useReveal();
   const expRef = useReveal();
@@ -246,7 +248,7 @@ export default function PortfolioUI() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
-      const ids = ["contact", "work", "experience", "about", "home"];
+      const ids = ["contact", "toolkit", "work", "experience", "about", "home"];
       for (const id of ids) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 140) { setActiveSection(id); break; }
@@ -283,7 +285,7 @@ export default function PortfolioUI() {
     e.preventDefault();
     const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
     const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+      `Name: ${formData.name}\nEmail: ${formData.email}\n${inquiryType ? `Inquiry: ${inquiryType}\n` : ""}\n${formData.message}`
     );
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
@@ -303,32 +305,6 @@ export default function PortfolioUI() {
             }`}>
             KAR
           </a>
-
-          {/* Desktop center pill */}
-          <nav className={`hidden md:flex items-center gap-7 rounded-full border px-7 py-3 backdrop-blur-xl transition-all duration-300 ${
-            usesDarkNav
-              ? scrolled
-                ? "border-white/20 bg-[rgb(10,9,7)]/88 shadow-lg"
-                : "border-white/10 bg-[rgb(10,9,7)]/55"
-              : scrolled
-                ? "border-[rgb(var(--pf-gray-200)/1)] bg-white/55 shadow-sm"
-                : "border-[rgb(var(--pf-gray-100)/0.8)] bg-white/35"
-          }`}>
-            {navLinks.map((item) => {
-              const isActive = activeSection === item.href.replace("#", "");
-              return (
-                <a key={item.href} href={item.href}
-                  className={`flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.2em] transition-all duration-200 ${
-                    usesDarkNav
-                      ? isActive ? "text-white" : "text-white/40 hover:text-white/80"
-                      : isActive ? "text-[rgb(var(--pf-gray-900)/1)]" : "text-[rgb(var(--pf-gray-400)/1)] hover:text-[rgb(var(--pf-gray-800)/1)]"
-                  }`}>
-                  <span className="font-mono text-[rgb(var(--pf-accent)/0.8)]">{item.num}</span>
-                  {item.label}
-                </a>
-              );
-            })}
-          </nav>
 
           {/* Right actions */}
           <div className="flex items-center gap-3">
@@ -381,6 +357,42 @@ export default function PortfolioUI() {
           </div>
         )}
       </header>
+
+      {/* ═══ DESKTOP VERTICAL LEFT NAV ═══ */}
+      {mounted && (
+        <nav className={`fixed left-4 top-1/2 z-40 hidden -translate-y-1/2 md:flex flex-col items-center gap-0 rounded-full border py-5 px-3 backdrop-blur-xl transition-all duration-300 ${
+          isDark
+            ? "border-white/10 bg-[rgb(10,9,7)]/70"
+            : "border-[rgb(var(--pf-gray-200)/0.8)] bg-white/70 shadow-sm"
+        }`}>
+          {navLinks.map((item) => {
+            const isActive = activeSection === item.href.replace("#", "");
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                title={item.label}
+                className={`group relative flex items-center justify-center px-2 py-2.5 transition-all duration-200 ${
+                  isActive
+                    ? "text-[rgb(var(--pf-accent)/1)]"
+                    : isDark
+                      ? "text-white/25 hover:text-white/70"
+                      : "text-[rgb(var(--pf-gray-300)/1)] hover:text-[rgb(var(--pf-gray-700)/1)]"
+                }`}
+              >
+                <span className="font-mono text-[9px] font-bold leading-none">{item.num}</span>
+                <span className={`pointer-events-none absolute left-full ml-3 whitespace-nowrap rounded-full border px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.15em] opacity-0 shadow-sm backdrop-blur-sm transition-opacity duration-150 group-hover:opacity-100 ${
+                  isDark
+                    ? "border-white/10 bg-[rgb(10,9,7)]/90 text-white/60"
+                    : "border-[rgb(var(--pf-gray-200)/0.6)] bg-white/95 text-[rgb(var(--pf-gray-600)/1)]"
+                }`}>
+                  {item.label}
+                </span>
+              </a>
+            );
+          })}
+        </nav>
+      )}
 
       <main className="flex min-h-screen w-full flex-col">
 
@@ -668,7 +680,7 @@ export default function PortfolioUI() {
 
           <div className="border-b border-[rgb(var(--pf-gray-200)/1)] px-6 py-8 md:px-12 transition-colors duration-500">
             <div className="mx-auto flex w-full max-w-7xl items-baseline gap-6">
-              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">T</span>
+              <span className="font-mono text-xs font-bold text-[rgb(var(--pf-accent)/1)]">05</span>
               <h2 className="font-archivo text-2xl font-black tracking-[-0.02em] text-[rgb(var(--pf-gray-900)/1)] md:text-3xl">
                 Toolkit
               </h2>
@@ -679,12 +691,17 @@ export default function PortfolioUI() {
             <div className="grid grid-cols-1 gap-px overflow-hidden border border-[rgb(var(--pf-gray-200)/1)] bg-[rgb(var(--pf-gray-200)/1)] md:grid-cols-2 lg:grid-cols-3 transition-colors duration-500">
               {TOOLKIT.map((kit, i) => (
                 <div key={i} className="flex flex-col gap-5 bg-[rgb(var(--pf-gray-default)/1)] p-8 transition-colors duration-500">
-                  <div className="flex items-center gap-3">
-                    <span className="font-mono text-[10px] font-bold text-[rgb(var(--pf-accent)/0.7)]">
-                      T.{String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-archivo text-sm font-black uppercase tracking-[0.08em] text-[rgb(var(--pf-gray-900)/1)]">
-                      {kit.label}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-[10px] font-bold text-[rgb(var(--pf-accent)/0.7)]">
+                        T.{String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span className="font-archivo text-sm font-black uppercase tracking-[0.08em] text-[rgb(var(--pf-gray-900)/1)]">
+                        {kit.label}
+                      </span>
+                    </div>
+                    <span className="shrink-0 font-mono text-[10px] font-bold text-[rgb(var(--pf-gray-300)/1)]">
+                      {kit.stars} STARS
                     </span>
                   </div>
                   <div className="flex flex-wrap gap-2">
@@ -832,6 +849,27 @@ export default function PortfolioUI() {
 
               {/* Form */}
               <form onSubmit={handleFormSubmit} className="reveal stagger-1 flex flex-col gap-6">
+                <div className="flex flex-col gap-3">
+                  <label className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
+                    I&apos;m reaching out about
+                  </label>
+                  <div className="flex flex-wrap gap-2">
+                    {["Senior Role", "Contract", "Design Work", "Other"].map((type) => (
+                      <button
+                        key={type}
+                        type="button"
+                        onClick={() => setInquiryType((prev) => prev === type ? "" : type)}
+                        className={`rounded-full border px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-all duration-150 ${
+                          inquiryType === type
+                            ? "border-[rgb(var(--pf-accent)/1)] bg-[rgb(var(--pf-accent)/0.08)] text-[rgb(var(--pf-accent)/1)]"
+                            : "border-[rgb(var(--pf-gray-200)/1)] text-[rgb(var(--pf-gray-400)/1)] hover:border-[rgb(var(--pf-gray-400)/1)] hover:text-[rgb(var(--pf-gray-800)/1)]"
+                        }`}
+                      >
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="mb-2 block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[rgb(var(--pf-gray-400)/1)]">
