@@ -38,7 +38,7 @@ import { projects, socialMedia, workExperience } from "@/data";
 import { Strata, Label, Tag, Field, WRAP, ICON_BTN } from "@/components/strata";
 
 /* ─── constants ─── */
-const CV_PATH = "/Kaesar_Adam_Rafano_CV_Updated.pdf";
+const CV_PATH = "/Kaesar Adam Rafano-resume.pdf";
 const CONTACT_EMAIL = "adamemier16@gmail.com";
 const LOCATION = "Jakarta, Indonesia";
 
