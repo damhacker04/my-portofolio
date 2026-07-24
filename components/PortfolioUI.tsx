@@ -18,6 +18,7 @@
 */
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import {
   FaArrowUpRightFromSquare,
@@ -440,8 +441,9 @@ export default function PortfolioUI() {
               </div>
 
               <div className="reveal-right flex flex-col gap-8">
-                <div className="overflow-hidden border border-line">
-                  <img src="/Foto_Background3.jpeg" alt="Kaesar Adam Rafano" className="aspect-[4/5] w-full object-cover object-[60%_center]" />
+                <div className="relative aspect-[4/5] w-full overflow-hidden border border-line">
+                  <Image src="/Foto_Background3.jpeg" alt="Kaesar Adam Rafano" fill
+                    sizes="(min-width: 1024px) 320px, 100vw" className="object-cover object-[60%_center]" />
                 </div>
                 <div className="flex flex-col">
                   {[
@@ -476,7 +478,9 @@ export default function PortfolioUI() {
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   <div className="flex flex-col gap-4">
-                    <img src={item.thumbnail} alt={item.title} className="h-7 w-auto max-w-[76px] object-contain opacity-80" />
+                    <div className="relative h-7 w-[76px]">
+                      <Image src={item.thumbnail} alt={item.title} fill sizes="76px" className="object-contain object-left opacity-80" />
+                    </div>
                     <h3 className="text-base font-bold leading-snug text-ink">{item.title}</h3>
                     <ul className="flex flex-col gap-3">
                       {((item as { descList?: string[] }).descList ?? [item.desc]).map((bullet: string) => (
@@ -528,13 +532,14 @@ export default function PortfolioUI() {
                         )}
                       </div>
                     </div>
-                    <div className="aspect-video overflow-hidden border-b border-line bg-surface">
+                    <div className="relative aspect-video overflow-hidden border-b border-line bg-surface">
                       {hasLive ? (
-                        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="block h-full">
-                          <img src={project.img} alt={project.title} className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]" />
+                        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="block h-full w-full">
+                          <Image src={project.img} alt={project.title} fill sizes="(min-width: 768px) 38rem, 100vw"
+                            className="object-cover transition-transform duration-700 hover:scale-[1.04]" />
                         </a>
                       ) : (
-                        <img src={project.img} alt={project.title} className="h-full w-full object-cover" />
+                        <Image src={project.img} alt={project.title} fill sizes="(min-width: 768px) 38rem, 100vw" className="object-cover" />
                       )}
                     </div>
                     <div className="flex flex-1 flex-col gap-3 p-5">
@@ -589,7 +594,7 @@ export default function PortfolioUI() {
                 <div className="flex flex-col gap-3">
                   <Label className="text-[10px]">I&apos;m reaching out about</Label>
                   <div className="flex flex-wrap gap-2">
-                    {["Senior Role", "Contract", "Design Work", "Other"].map((type) => (
+                    {["Junior Role", "Contract", "Other"].map((type) => (
                       <button key={type} type="button" onClick={() => setInquiryType((prev) => prev === type ? "" : type)}
                         className={`rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] transition-all duration-150 ${
                           inquiryType === type

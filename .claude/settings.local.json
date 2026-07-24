@@ -16,7 +16,9 @@
       "Bash(Start-Sleep -Seconds 2)",
       "Bash(Write-Host \"Done\")",
       "Bash(node \".claude/skills/impeccable/scripts/context.mjs\")",
-      "WebFetch(domain:www.magma.build)"
+      "WebFetch(domain:www.magma.build)",
+      "Bash(awk '{printf \"%8.1f KB  %s\\\\n\", $5/1024, $9}')",
+      "Bash(sort -rn -k1)"
     ]
   },
   "hooks": {
