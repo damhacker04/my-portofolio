@@ -85,7 +85,7 @@ export const projects = [
     img: "/ai-ceo-circle.png",
     iconLists: ["/next.svg", "/javascript.svg", "/ts.svg"],
     githubLink: "https://github.com/damhacker04/landing-page-ai-ceo-circle",
-    liveUrl: "https://landing-page-ai-ceo-circle.vercel.app/",
+    liveUrl: "https://www.aiceocircle.com/",
   },
   {
     id: 3,
